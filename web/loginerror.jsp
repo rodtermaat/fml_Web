@@ -13,12 +13,26 @@
     </head>
     <body>
         <h1>login error</h1>
-        Here is where you somehow fucked up. some possibilities...
-        - you typed in the user and password incorrectly.  fix that.
-        - you cannot remember either.  Dumb ass, click reset password.
-        - you do not have an account. WTF? Register a new account already.
-        - of course my code could be shit?
-        
+        <table border="0">
+            <tbody>
+                <tr>
+                    <td> Here is where you somehow fucked up. some possibilities...</td>
+                </tr>
+                <tr>
+                    <td>- you typed in the user and password incorrectly.  fix that.</td>
+                </tr>
+                <tr>
+                    <td>- you cannot remember either.  Dumb ass, click reset password.</td>
+                </tr>
+                <tr>
+                    <td>- you do not have an account. WTF? Register a new account already.</td>
+                </tr>
+                <tr>
+                    <td>- of course my code could be shit?</td>
+                </tr>
+            </tbody>
+        </table>
+
         <a href="index.jsp">. login again?</a>
         <a href="passreset.jsp">. reset password?</a>
         <a href="newuser.jsp">. register?</a>

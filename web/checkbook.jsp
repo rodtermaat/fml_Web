@@ -68,10 +68,10 @@
             ResultSet checks = checkbook.getChecks();
             int balance = 0;
         %>
-        <table border="2">
+        <table border="2" width="60%">
             <tbody>
                 <tr>
-                    <td>Id</td>
+                    <td>id</td>
                     <td>cleared</td>
                     <td>date</td>
                     <td>type</td>
@@ -85,7 +85,11 @@
                 %>
                 <tr>
                     <td><%= checks.getInt("checkId")%></td>
-                    <td><%= checks.getBoolean("checkCleared")%></td>
+                    <% if(checks.getBoolean("checkCleared")) { %>
+                    <td>yep</td>
+                    <%} else { %>
+                    <td>nope</td>
+                    <% } %>
                     <td><%= checks.getInt("checkDate8")%></td>
                     <td><%= checks.getString("typeName")%></td>
                     <td><%= checks.getString("categName")%></td>
