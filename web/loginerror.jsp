@@ -32,6 +32,13 @@
                 </tr>
             </tbody>
         </table>
+        
+        <h2>here is where you somehow fucked up.  some possibilities are...</h2>
+        <ul>
+            <li>you types in the user and password incorrectly.  fix that</li>
+            <li>you cannot remember either.  dumb ass, click reset password</li>
+            
+        </ul>
 
         <a href="index.jsp">. login again?</a>
         <a href="passreset.jsp">. reset password?</a>

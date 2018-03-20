@@ -37,7 +37,7 @@
                     connection = DriverManager.getConnection(url, mysql_user, 
                                 mysql_pass);
                     selectCheckbook = connection.prepareStatement(
-                        "SELECT chk.checkId, chk.checkDate8," + 
+                        "SELECT chk.checkId, chk.checkDate," + 
                         " typ.typeName, cat.categName," +
                         " chk.checkName, chk.checkAmt, chk.checkCleared" +
                         " FROM `checkbook` chk" +
@@ -90,7 +90,7 @@
                     <%} else { %>
                     <td>nope</td>
                     <% } %>
-                    <td><%= checks.getInt("checkDate8")%></td>
+                    <td><%= checks.getDate("checkDate")%></td>
                     <td><%= checks.getString("typeName")%></td>
                     <td><%= checks.getString("categName")%></td>
                     <td><%= checks.getString("checkName")%></td>

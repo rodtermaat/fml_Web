@@ -75,7 +75,7 @@
             if (rsUser.next()){
                 // go to checkbook
                 session.setAttribute("userName", _user);
-                response.sendRedirect("checkbook.jsp");
+                response.sendRedirect("viewcheckbook.jsp");
             } else{
                // go to login error page
                response.sendRedirect("loginerror.jsp");
