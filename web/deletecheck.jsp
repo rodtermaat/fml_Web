@@ -5,10 +5,10 @@
 --%>
 
 <%@page import="com.termaat.dao.CheckDao"%>  
-<jsp:useBean id="chk" class="com.termaat.bean.Check"></jsp:useBean>  
-<jsp:setProperty property="*" name="chk"/>  
+<jsp:useBean id="v_chk" class="com.termaat.bean.ViewCheck"></jsp:useBean>  
+<jsp:setProperty property="*" name="v_chk"/>  
 <%  
-System.out.println(chk.getCheckId());
-CheckDao.delete(chk);  
+System.out.println(v_chk.getCheckId());
+CheckDao.delete(v_chk);  
 response.sendRedirect("viewcheckbook.jsp");  
 %>

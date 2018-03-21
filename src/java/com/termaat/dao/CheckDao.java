@@ -7,7 +7,7 @@ package com.termaat.dao;
 import java.sql.*;  
 import java.util.ArrayList;  
 import java.util.List;  
-import com.termaat.bean.Check;
+import com.termaat.bean.ViewCheck;
 import com.termaat.bean.EditCheck;
 
 /**
@@ -45,7 +45,7 @@ public static int update(EditCheck e_chk){
     return status;  
 }  
 
-public static int delete(Check chk){  
+public static int delete(ViewCheck chk){  
     int status=0;  
     try{  
         Connection con=getConnection();  
@@ -57,8 +57,8 @@ public static int delete(Check chk){
     return status;  
 }
 
-public static List<Check> getAllRecords(){  
-    List<Check> list=new ArrayList<Check>();  
+public static List<ViewCheck> getAllRecords(){  
+    List<ViewCheck> list=new ArrayList<ViewCheck>();  
       
     try{  
         Connection con=getConnection();  
@@ -76,7 +76,7 @@ public static List<Check> getAllRecords(){
         
         ResultSet rs=ps.executeQuery();  
         while(rs.next()){  
-            Check chk=new Check();  
+            ViewCheck chk=new ViewCheck();  
             chk.setCheckId(rs.getInt("checkId"));  
             chk.setCheckDate(rs.getDate("checkDate"));
             chk.setTypeName(rs.getString("typeName"));  
@@ -90,8 +90,8 @@ public static List<Check> getAllRecords(){
     return list;  
     }
 
-public static Check getRecordById(int id){  
-    Check chk=null;  
+public static ViewCheck getRecordById(int id){  
+    ViewCheck chk=null;  
     try{  
         Connection con=getConnection();  
         PreparedStatement ps=con.prepareStatement(
@@ -109,7 +109,7 @@ public static Check getRecordById(int id){
         ps.setInt(1,id);  
         ResultSet rs=ps.executeQuery();  
         while(rs.next()){  
-            chk=new Check();  
+            chk=new ViewCheck();  
             chk.setCheckId(rs.getInt("checkId"));  
             chk.setCheckDate(rs.getDate("checkDate"));  
             chk.setTypeName(rs.getString("typeName"));  

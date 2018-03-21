@@ -19,7 +19,9 @@
         <h1>. checkbook</h1>  
 
         <%
-            List<Check> list = CheckDao.getAllRecords();
+            int viewBalance = 0;
+            int amt = 0;
+            List<ViewCheck> list = CheckDao.getAllRecords();
             request.setAttribute("list", list);
         %>  
 
@@ -36,18 +38,20 @@
                 <th></th>
                 <th></th>
             </tr>  
-            <c:forEach items="${list}" var="chk">  
+            <c:set var="balance" value="${0}"/>
+            <c:forEach items="${list}" var="v_chk">
+                <c:set var="balance" value="${balance + 1}"/> 
                 <tr>
-                    <td>${chk.getCheckId()}</td>
-                    <td>${chk.getIsCleared()}</td>
-                    <td>${chk.getCheckDate()}</td>  
-                    <td>${chk.getTypeName()}</td>
-                    <td>${chk.getCategName()}</td>
-                    <td>${chk.getCheckName()}</td>
-                    <td>${chk.getCheckAmt()}</td>
-                    <td>$1250</td>
-                    <td><a href="editcheckform.jsp?id=${chk.getCheckId()}">edit</a></td>  
-                    <td><a href="deletecheck.jsp?checkId=${chk.getCheckId()}">delete</a></td></tr>  
+                    <td>${v_chk.getCheckId()}</td>
+                    <td>${v_chk.getIsCleared()}</td>
+                    <td>${v_chk.getCheckDate()}</td>  
+                    <td>${v_chk.getTypeName()}</td>
+                    <td>${v_chk.getCategName()}</td>
+                    <td>${v_chk.getCheckName()}</td>
+                    <td>${v_chk.getCheckAmt()}</td>
+                    <td>${balance}</td>
+                    <td><a href="editcheckform.jsp?id=${v_chk.getCheckId()}">edit</a></td>  
+                    <td><a href="deletecheck.jsp?checkId=${v_chk.getCheckId()}">delete</a></td></tr>  
             </c:forEach>  
         </table>  
         <br/><a href="addcheck.jsp">. add new transaction</a>  

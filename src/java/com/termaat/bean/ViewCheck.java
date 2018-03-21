@@ -10,7 +10,7 @@ import java.sql.Date;
  *
  * @author termaat
  */
-public class Check {
+public class ViewCheck {
 
     private int checkId, checkAmt;
     private Date checkDate;
