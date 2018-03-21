@@ -8,6 +8,7 @@
 <jsp:useBean id="chk" class="com.termaat.bean.Check"></jsp:useBean>  
 <jsp:setProperty property="*" name="chk"/>  
 <%  
+System.out.println(chk.getCheckId());
 CheckDao.delete(chk);  
 response.sendRedirect("viewcheckbook.jsp");  
 %>

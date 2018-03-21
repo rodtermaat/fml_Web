@@ -9,14 +9,14 @@
 <html>  
     <head>  
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">  
-        <title>View Users</title>  
+        <title>view checkbook</title>  
     </head>  
     <body>  
 
         <%@page import="com.termaat.dao.CheckDao,com.termaat.bean.*,java.util.*"%>  
         <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
 
-        <h1>Users List</h1>  
+        <h1>. checkbook</h1>  
 
         <%
             List<Check> list = CheckDao.getAllRecords();
@@ -47,10 +47,10 @@
                     <td>${chk.getCheckAmt()}</td>
                     <td>$1250</td>
                     <td><a href="editcheckform.jsp?id=${chk.getCheckId()}">edit</a></td>  
-                    <td><a href="deletecheck.jsp?id=${chk.getCheckId()}">delete</a></td></tr>  
+                    <td><a href="deletecheck.jsp?checkId=${chk.getCheckId()}">delete</a></td></tr>  
             </c:forEach>  
         </table>  
-        <br/><a href="adduserform.jsp">Add New User</a>  
+        <br/><a href="addcheck.jsp">. add new transaction</a>  
 
     </body>  
 </html>  

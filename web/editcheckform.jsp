@@ -19,12 +19,21 @@ String id=request.getParameter("id");
 Check chk=CheckDao.getRecordById(Integer.parseInt(id));  
 %>  
   
-<h1>edit checkbook</h1>  
+<h1>edit checkbook</h1> 
+<%
+System.out.println(chk.getCheckId());
+System.out.println(chk.getCheckDate());
+System.out.println(chk.getTypeName());
+System.out.println(chk.getCategName());
+System.out.println(chk.getCheckName());
+System.out.println(chk.getCheckAmt());
+System.out.println(chk.getIsCleared());
+%>
 <form action="editcheck.jsp" method="post">  
-<input type="text" name="CheckId" value="<%=chk.getCheckId() %>"/>  
+<input type="hidden" name="checkId" value="<%=chk.getCheckId() %>"/>  
 <table>  
-<tr><td>date:</td><td>  
-<input type="text" name="checkDate" value="<%= chk.getCheckDate()%>"/></td></tr>  
+<tr><td>date:</td><td>
+<input type="date" class="date"  name="checkDate" value="<%= chk.getCheckDate()%>"/></td></tr>  
 <tr><td>type:</td><td>
 <% if(chk.getTypeName().toString().equals("income")) {%>
     <input type="radio" name="typeName" value="1" checked="checked"/>income
@@ -111,7 +120,7 @@ Check chk=CheckDao.getRecordById(Integer.parseInt(id));
     <input type="radio" name="categName" value="9"/>savings
 <% } %>
 
-<% if(chk.getCategName().toString().equals("diniing")) {%>
+<% if(chk.getCategName().toString().equals("dining")) {%>
     <input type="radio" name="categName" value="10" checked="checked"/>dining
 <% } else { %>
     <input type="radio" name="categName" value="10"/>dining
@@ -132,8 +141,8 @@ Check chk=CheckDao.getRecordById(Integer.parseInt(id));
     <input type="radio" name="isCleared" value="true" checked="checked"/>cleared
     <input type="radio" name="isCleared" value="false"/>not cleared</td></tr> 
 <% } else {%>
-    <input type="radio" name="isCleared" value="true"/>cleared
-    <input type="radio" name="isCleared" value="false" checked="checked"/>not cleared</td></tr>
+    <input type="radio" name="isCleared" value="false"/>cleared
+    <input type="radio" name="isCleared" value="true" checked="checked"/>not cleared</td></tr>
 <% } %>
 <tr><td colspan="2"><input type="submit" value="update transaction"/></td></tr>  
 </table>  

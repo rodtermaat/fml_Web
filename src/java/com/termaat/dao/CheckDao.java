@@ -7,7 +7,8 @@ package com.termaat.dao;
 import java.sql.*;  
 import java.util.ArrayList;  
 import java.util.List;  
-import com.termaat.bean.Check; 
+import com.termaat.bean.Check;
+import com.termaat.bean.EditCheck;
 
 /**
  *
@@ -24,21 +25,21 @@ public static Connection getConnection(){
     return con;  
 }  
 
-public static int update(Check chk){  
+public static int update(EditCheck e_chk){  
     int status=0;  
     try{  
         Connection con=getConnection();  
         PreparedStatement ps=con.prepareStatement(  
-                "UPDATE checkbook set checkDate=?,checkTypeId=?," +
+                "UPDATE checkbook set checkDate=?, checkTypeId=?," +
                 " checkCategId=?,checkName=?,checkAmt=?," +
-                " checkCleared=? where id=?");  
-        ps.setDate(1,chk.getCheckDate());  
-        ps.setInt(2,Integer.parseInt(chk.getTypeName()));  
-        ps.setInt(3,Integer.parseInt(chk.getCategName()));  
-        ps.setString(4,chk.getCheckName());  
-        ps.setInt(5,chk.getCheckAmt());  
-        ps.setBoolean(6,chk.getIsCleared());
-        ps.setInt(7,chk.getCheckId());
+                " checkCleared=? where checkId=?");  
+        ps.setDate(1,e_chk.getCheckDate());  
+        ps.setInt(2,e_chk.getCheckTypeId());  
+        ps.setInt(3,e_chk.getCheckCategId());  
+        ps.setString(4,e_chk.getCheckName());  
+        ps.setInt(5,e_chk.getCheckAmt());  
+        ps.setBoolean(6,e_chk.getIsCleared());
+        ps.setInt(7,e_chk.getCheckId());
         status=ps.executeUpdate();  
     }catch(Exception e){System.out.println(e);}  
     return status;  

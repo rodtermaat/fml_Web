@@ -6,16 +6,18 @@
 package com.termaat.bean;
 
 import java.sql.Date;
+
 /**
  *
  * @author termaat
  */
-public class Check {
 
-    private int checkId, checkAmt;
+public class EditCheck {
+
+    private int checkId, checkAmt, checkTypeId, checkCategId;
     private Date checkDate;
-    private String typeName, categName, checkName, scheckDate;
-    private Boolean isCleared;
+    private String checkName;
+    private Boolean isCleared;    
 
     /**
      * @return the checkId
@@ -46,52 +48,45 @@ public class Check {
     }
 
     /**
+     * @return the checkTypeId
+     */
+    public int getCheckTypeId() {
+        return checkTypeId;
+    }
+
+    /**
+     * @param checkTypeId the checkTypeId to set
+     */
+    public void setCheckTypeId(int checkTypeId) {
+        this.checkTypeId = checkTypeId;
+    }
+
+    /**
+     * @return the checkCategId
+     */
+    public int getCheckCategId() {
+        return checkCategId;
+    }
+
+    /**
+     * @param checkCategId the checkCategId to set
+     */
+    public void setCheckCategId(int checkCategId) {
+        this.checkCategId = checkCategId;
+    }
+
+    /**
      * @return the checkDate
      */
     public Date getCheckDate() {
         return checkDate;
     }
-    /**
-     * @param scheckDate the checkDate to set
-     */
-    public void setCheckDate(String scheckDate) {
-        java.sql.Date sqlDate = java.sql.Date.valueOf(scheckDate);
-        this.checkDate = sqlDate;
-    }
-    
+
     /**
      * @param checkDate the checkDate to set
      */
     public void setCheckDate(Date checkDate) {
         this.checkDate = checkDate;
-    }
-           
-    /**
-     * @return the typeName
-     */
-    public String getTypeName() {
-        return typeName;
-    }
-
-    /**
-     * @param typeName the typeName to set
-     */
-    public void setTypeName(String typeName) {
-        this.typeName = typeName;
-    }
-
-    /**
-     * @return the categName
-     */
-    public String getCategName() {
-        return categName;
-    }
-
-    /**
-     * @param categName the categName to set
-     */
-    public void setCategName(String categName) {
-        this.categName = categName;
     }
 
     /**
@@ -121,7 +116,6 @@ public class Check {
     public void setIsCleared(Boolean isCleared) {
         this.isCleared = isCleared;
     }
- 
-    
-    
 }
+
+
