@@ -18,13 +18,13 @@
                 <tbody>
                     <tr>
                         <td>user name: </td>
-                        <td><input type="text" name="username" value="" size="40"
+                        <td><input type="text" name="username" value="" size="25"
                                    required/></td>
                     </tr>
                     <tr>
                         <td>password: </td>
                         <td><input type="password" name="password" value="" 
-                                   size="40"  required/></td>
+                                   size="25"  required/></td>
                     </tr>
                 </tbody>
             </table>

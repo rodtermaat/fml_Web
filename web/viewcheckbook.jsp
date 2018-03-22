@@ -54,7 +54,7 @@
                     <td><a href="deletecheck.jsp?checkId=${v_chk.getCheckId()}">delete</a></td></tr>  
             </c:forEach>  
         </table>  
-        <br/><a href="addcheck.jsp">. add new transaction</a>  
+        <br/><a href="addcheckform.jsp">. add new transaction</a>  
 
     </body>  
 </html>  

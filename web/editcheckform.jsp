@@ -32,118 +32,116 @@ System.out.println(v_chk.getIsCleared());
 <form action="editcheck.jsp" method="post">  
 <input type="hidden" name="checkId" value="<%=v_chk.getCheckId() %>"/>  
 <table>  
-<tr><td>date:</td><td>
-<input type="date" class="date"  name="checkDate" value="<%= v_chk.getCheckDate()%>"/></td></tr>  
-<tr><td>type:</td><td>
+<tr><td>. date:</td><td>
+<input type="date" class="date"  name="checkDate" value="<%= v_chk.getCheckDate()%>" size="15"/></td></tr>  
+<tr><td>. type:</td><td>
 <% if(v_chk.getTypeName().toString().equals("income")) {%>
-    <input type="radio" name="typeName" value="1" checked="checked"/>income
+    <input type="radio" name="typeName" value="1" checked="checked"/> income
 <%} else { %>
-    <input type="radio" name="typeName" value="1"/>income
+    <input type="radio" name="typeName" value="1"/> income
 <% } %>
 
 <% if(v_chk.getTypeName().toString().equals("bills")) {%>
-    <input type="radio" name="typeName" value="2" checked="checked"/>bills
+    <input type="radio" name="typeName" value="2" checked="checked"/> bills
 <%} else { %>
-    <input type="radio" name="typeName" value="2"/>bills
+    <input type="radio" name="typeName" value="2"/> bills
 <% } %>
 
 <% if(v_chk.getTypeName().toString().equals("unplanned expense")) {%>
-    <input type="radio" name="typeName" value="3" checked="checked"/>unplanned expense
+    <input type="radio" name="typeName" value="3" checked="checked"/> unplanned expense
 <%} else { %>
-    <input type="radio" name="typeName" value="3"/>unplanned expense
+    <input type="radio" name="typeName" value="3"/> unplanned expense
 <% } %>
 
 <% if(v_chk.getTypeName().toString().equals("budget")) {%>
-    <input type="radio" name="typeName" value="4" checked="checked"/>budgeted expense
+    <input type="radio" name="typeName" value="4" checked="checked"/> budgeted expense
 <%} else { %>
-    <input type="radio" name="typeName" value="4"/>budgeted expense
+    <input type="radio" name="typeName" value="4"/> budgeted expense
 <% } %>
 
 <% if(v_chk.getTypeName().toString().equals("savings")) {%>
-    <input type="radio" name="typeName" value="5" checked="checked"/>savings</td></tr>  
+    <input type="radio" name="typeName" value="5" checked="checked"/> savings</td></tr>  
 <%} else { %>
-    <input type="radio" name="typeName" value="5"/>savings</td></tr>
+    <input type="radio" name="typeName" value="5"/> savings</td></tr>
 <% } %>
 
-<tr><td>category:</td><td>  
+<tr><td>. category:</td><td>  
 <% if(v_chk.getCategName().toString().equals("account")) {%>
-    <input type="radio" name="categName" value="1" checked="checked"/>account
+    <input type="radio" name="categName" value="1" checked="checked"/> account
 <% } else { %>
-    <input type="radio" name="categName" value="1"/>account
+    <input type="radio" name="categName" value="1"/> account
 <% } %>
 
 <% if(v_chk.getCategName().toString().equals("house")) {%>
-    <input type="radio" name="categName" value="2" checked="checked"/>house
+    <input type="radio" name="categName" value="2" checked="checked"/> house
 <% } else { %>
-    <input type="radio" name="categName" value="2"/>house
+    <input type="radio" name="categName" value="2"/> house
 <% } %>
 
 <% if(v_chk.getCategName().toString().equals("living")) {%>
-    <input type="radio" name="categName" value="3" checked="checked"/>living
+    <input type="radio" name="categName" value="3" checked="checked"/> living
 <% } else { %>
-    <input type="radio" name="categName" value="3"/>living
+    <input type="radio" name="categName" value="3"/> living
 <% } %>
 
 <% if(v_chk.getCategName().toString().equals("debt")) {%>
-    <input type="radio" name="categName" value="4" checked="checked"/>debt
+    <input type="radio" name="categName" value="4" checked="checked"/> debt
 <% } else { %>
-    <input type="radio" name="categName" value="4"/>debt
+    <input type="radio" name="categName" value="4"/> debt
 <% } %>
 
 <% if(v_chk.getCategName().toString().equals("salary")) {%>
-    <input type="radio" name="categName" value="5" checked="checked"/>salary
+    <input type="radio" name="categName" value="5" checked="checked"/> salary
 <% } else { %>
-    <input type="radio" name="categName" value="5"/>salary
+    <input type="radio" name="categName" value="5"/> salary
 <% } %>
 
 <% if(v_chk.getCategName().toString().equals("insurance")) {%>
-    <input type="radio" name="categName" value="6" checked="checked"/>insurance
+    <input type="radio" name="categName" value="6" checked="checked"/> insurance
 <% } else { %>
-    <input type="radio" name="categName" value="6"/>insurance
+    <input type="radio" name="categName" value="6"/> insurance
 <% } %>
 
 <% if(v_chk.getCategName().toString().equals("groceries")) {%>
-    <input type="radio" name="categName" value="7" checked="checked"/>groceries
+    <input type="radio" name="categName" value="7" checked="checked"/> groceries
 <% } else { %>
-    <input type="radio" name="categName" value="7"/>groceries
+    <input type="radio" name="categName" value="7"/> groceries
 <% }%>    
 
 <% if(v_chk.getCategName().toString().equals("cash")) {%>
-    <input type="radio" name="categName" value="8" checked="checked"/>cash
+    <input type="radio" name="categName" value="8" checked="checked"/> cash
 <% } else { %>
-    <input type="radio" name="categName" value="8"/>cash
+    <input type="radio" name="categName" value="8"/> cash
 <% } %>
 
 <% if(v_chk.getCategName().toString().equals("savings")) {%>
-    <input type="radio" name="categName" value="9" checked="checked"/>savings
+    <input type="radio" name="categName" value="9" checked="checked"/> savings
 <% } else { %>
-    <input type="radio" name="categName" value="9"/>savings
+    <input type="radio" name="categName" value="9"/> savings
 <% } %>
 
 <% if(v_chk.getCategName().toString().equals("dining")) {%>
-    <input type="radio" name="categName" value="10" checked="checked"/>dining
+    <input type="radio" name="categName" value="10" checked="checked"/> dining
 <% } else { %>
-    <input type="radio" name="categName" value="10"/>dining
+    <input type="radio" name="categName" value="10"/> dining
 <% } %>
 
 <% if(v_chk.getCategName().toString().equals("unplanned")) {%>
-    <input type="radio" name="categName" value="11" checked="checked"/>unplanned</td></tr>  
+    <input type="radio" name="categName" value="11" checked="checked"/> unplanned</td></tr>  
 <% } else { %>
-    <input type="radio" name="categName" value="11"/>unplanned</td></tr> 
+    <input type="radio" name="categName" value="11"/> unplanned</td></tr> 
 <% } %>
 
-<tr><td>description:</td><td>  
+<tr><td>. description:</td><td>  
 <input type="text" name="checkName" value="<%= v_chk.getCheckName()%>"/></td></tr>   
 <tr><td>amount:</td><td>  
 <input type="text" name="checkAmt" value="<%= v_chk.getCheckAmt()%>"/></td></tr>   
-<tr><td>is cleared:</td><td>  
+<tr><td>. is cleared:</td><td>  
 <% if (v_chk.getIsCleared()) { %>
-    <input type="radio" name="isCleared" value="true" checked="checked"/>cleared
-    <input type="radio" name="isCleared" value="false"/>not cleared</td></tr> 
+    <input type="checkbox" name="isCleared" value="true" checked="checked" />
 <% } else {%>
-    <input type="radio" name="isCleared" value="false"/>cleared
-    <input type="radio" name="isCleared" value="true" checked="checked"/>not cleared</td></tr>
-<% } %>
+    <input type="checkbox" name="isCleared" value="true"/>
+<% } %> 
 <tr><td colspan="2"><input type="submit" value="update transaction"/></td></tr>  
 </table>  
 </form>  

@@ -14,7 +14,19 @@ int _checkTypeId = Integer.parseInt(request.getParameter("typeName"));
 int _checkCategId = Integer.parseInt(request.getParameter("categName"));
 String _checkName = request.getParameter("checkName");
 int _checkAmt = Integer.parseInt(request.getParameter("checkAmt"));
-Boolean _checkCleared = Boolean.parseBoolean("isCleared");
+boolean _checkCleared = false;
+
+if (Boolean.parseBoolean(request.getParameter("isCleared"))){
+    _checkCleared = true;
+}
+
+System.out.println(_checkId);
+System.out.println(_checkDate);
+System.out.println(_checkTypeId);
+System.out.println(_checkCategId);
+System.out.println(_checkName);
+System.out.println(_checkAmt);
+System.out.println(_checkCleared);
 
 e_chk.setCheckId(_checkId);
 e_chk.setCheckDate(_checkDate);
@@ -24,6 +36,6 @@ e_chk.setCheckName(_checkName);
 e_chk.setCheckAmt(_checkAmt);
 e_chk.setIsCleared(_checkCleared);
 
-int i=CheckDao.update(e_chk);  
+int i=CheckDao.updateCheck(e_chk);  
 response.sendRedirect("viewcheckbook.jsp");  
 %>

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package com.termaat.dao;
+import com.termaat.bean.AddCheck;
 import java.sql.*;  
 import java.util.ArrayList;  
 import java.util.List;  
@@ -25,7 +26,24 @@ public static Connection getConnection(){
     return con;  
 }  
 
-public static int update(EditCheck e_chk){  
+public static int addCheck(AddCheck a_chk){  
+    int status=0;  
+    try{  
+        Connection con=getConnection();  
+        PreparedStatement ps=con.prepareStatement(  
+        "INSERT INTO checkbook(checkDate,checkTypeId, checkCategId,checkName, checkAmt, checkCleared, checkUser) values(?,?,?,?,?,?,1)"); 
+        ps.setDate(1,a_chk.getCheckDate());  
+        ps.setInt(2,a_chk.getCheckTypeId());  
+        ps.setInt(3,a_chk.getCheckCategId());  
+        ps.setString(4,a_chk.getCheckName());  
+        ps.setInt(5,a_chk.getCheckAmt());  
+        ps.setBoolean(6,a_chk.getIsCleared());
+        status=ps.executeUpdate();  
+    }catch(Exception e){System.out.println(e);}  
+    return status;  
+}  
+
+public static int updateCheck(EditCheck e_chk){  
     int status=0;  
     try{  
         Connection con=getConnection();  
@@ -45,7 +63,7 @@ public static int update(EditCheck e_chk){
     return status;  
 }  
 
-public static int delete(ViewCheck chk){  
+public static int deleteCheck(ViewCheck chk){  
     int status=0;  
     try{  
         Connection con=getConnection();  
@@ -121,4 +139,14 @@ public static ViewCheck getRecordById(int id){
     }catch(Exception e){System.out.println(e);}  
     return chk;  
 }  
+
+//set @balance=0;
+//select userUID, chk.checkDate, trn.typeName, cat.categName, chk.checkName, chk.checkAmt,
+//@balance:=@balance+chk.checkAmt as balance
+//from `checkbook` chk
+//inner join `user` on userId = checkUser
+//inner join `trantype` trn on trn.typeId= chk.checkTypeId
+//inner join `category` cat on cat.categId = chk.checkCategId 
+//order by checkDate;
+
 }

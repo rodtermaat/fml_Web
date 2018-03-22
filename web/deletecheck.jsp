@@ -9,6 +9,6 @@
 <jsp:setProperty property="*" name="v_chk"/>  
 <%  
 System.out.println(v_chk.getCheckId());
-CheckDao.delete(v_chk);  
+CheckDao.deleteCheck(v_chk);  
 response.sendRedirect("viewcheckbook.jsp");  
 %>
