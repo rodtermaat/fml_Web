@@ -9,10 +9,20 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>login</title>
+        <title>. login</title>
+        <link href="resources/css/mystyle.css" type="text/css"
+      rel="stylesheet" />
     </head>
+    <div class="header">
+        <a href="#default" class="logo"> FML. login</a>
+        <div class="header-right">
+            <a class="active" href="newuser.jsp">register</a>
+            <a href="passreset.jsp">reset password</a>
+            <a href="#about">About</a>
+        </div>
+    </div>
     <body>
-        <h1>. login</h1>
+        <h1></h1>
         <form name="loginForm" action="validateuser.jsp" method="POST">
             <table border="0">
                 <tbody>
@@ -28,12 +38,8 @@
                     </tr>
                 </tbody>
             </table>
-            <input type="reset" value=". reset" name="reset" />
-            <input type="submit" value=". submit" name="submit" />
-            <a href="newuser.jsp">register</a>
-            <a href="passreset.jsp">reset password</a>
-            
-            
+            <input class="butt" type="reset" value="reset" name="reset" />
+            <input class="butt" type="submit" value="submit" name="submit" />            
         </form>
     </body>
 </html>
