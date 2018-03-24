@@ -10,7 +10,14 @@
 <head>  
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">  
 <title>edit transaction</title>  
+<link href="resources/css/mystyle.css" type="text/css" rel="stylesheet" />
 </head>  
+    <div class="header">
+        <a href="#default" class="logo"> FML. edit transaction</a>
+        <div class="header-right">
+            <a class="active" href="viewcheckbook.jsp">cancel</a>
+        </div>
+    </div>
 <body>  
 <%@page import="com.termaat.dao.CheckDao,com.termaat.bean.ViewCheck"%>  
   
@@ -19,7 +26,7 @@ String id=request.getParameter("id");
 ViewCheck v_chk=CheckDao.getRecordById(Integer.parseInt(id));  
 %>  
   
-<h1>edit checkbook</h1> 
+<h1></h1> 
 <%
 System.out.println(v_chk.getCheckId());
 System.out.println(v_chk.getCheckDate());
@@ -34,6 +41,7 @@ System.out.println(v_chk.getIsCleared());
 <table>  
 <tr><td>. date:</td><td>
 <input type="date" class="date"  name="checkDate" value="<%= v_chk.getCheckDate()%>" size="15"/></td></tr>  
+<tr height = 10px></tr>
 <tr><td>. type:</td><td>
 <% if(v_chk.getTypeName().toString().equals("income")) {%>
     <input type="radio" name="typeName" value="1" checked="checked"/> income
@@ -64,7 +72,7 @@ System.out.println(v_chk.getIsCleared());
 <%} else { %>
     <input type="radio" name="typeName" value="5"/> savings</td></tr>
 <% } %>
-
+<tr height = 10px></tr>
 <tr><td>. category:</td><td>  
 <% if(v_chk.getCategName().toString().equals("account")) {%>
     <input type="radio" name="categName" value="1" checked="checked"/> account
@@ -131,18 +139,21 @@ System.out.println(v_chk.getIsCleared());
 <% } else { %>
     <input type="radio" name="categName" value="11"/> unplanned</td></tr> 
 <% } %>
-
+<tr height = 10px></tr>
 <tr><td>. description:</td><td>  
 <input type="text" name="checkName" value="<%= v_chk.getCheckName()%>"/></td></tr>   
-<tr><td>amount:</td><td>  
+<tr height = 10px></tr>
+<tr><td>. amount:</td><td>  
 <input type="text" name="checkAmt" value="<%= v_chk.getCheckAmt()%>"/></td></tr>   
+<tr height = 10px></tr>
 <tr><td>. is cleared:</td><td>  
 <% if (v_chk.getIsCleared()) { %>
     <input type="checkbox" name="isCleared" value="true" checked="checked" />
 <% } else {%>
     <input type="checkbox" name="isCleared" value="true"/>
 <% } %> 
-<tr><td colspan="2"><input type="submit" value="update transaction"/></td></tr>  
+<tr height = 10px></tr>
+<tr><td colspan="2"><input type="submit" class="butt" value="update"/></td></tr>  
 </table>  
 </form>  
   

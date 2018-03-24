@@ -38,6 +38,7 @@
                     </tr>
                 </tbody>
             </table>
+            <br>
             <input class="butt" type="reset" value="reset" name="reset" />
             <input class="butt" type="submit" value="submit" name="submit" />            
         </form>

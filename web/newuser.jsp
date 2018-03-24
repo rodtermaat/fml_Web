@@ -10,8 +10,15 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>register user</title>
+        <link href="resources/css/mystyle.css" type="text/css" rel="stylesheet" />
     </head>
+        <div class="header">
+        <a href="#default" class="logo"> FML. register</a>
+        <div class="header-right">
+            <a class="active" href="index.jsp">login</a>
+        </div>
+    </div>
     <body>
-        <h1>new user registration</h1>
+        <h1></h1>
     </body>
 </html>
