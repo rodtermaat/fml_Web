@@ -9,6 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>. login</title>
         <link href="resources/css/mystyle.css" type="text/css"
       rel="stylesheet" />
@@ -18,7 +19,7 @@
         <div class="header-right">
             <a class="active" href="newuser.jsp">register</a>
             <a href="passreset.jsp">reset password</a>
-            <a href="#about">About</a>
+            <a href="#about">about</a>
         </div>
     </div>
     <body>
