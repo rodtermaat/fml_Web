@@ -11,6 +11,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">  
 <title>edit transaction</title>  
 <link href="resources/css/mystyle.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  
+<script>
+    $(document).ready(function() {
+    $("#datepicker").datepicker({ dateFormat: "yy-mm-dd" });
+});
+</script>
 </head>  
     <div class="header">
         <a href="#default" class="logo"> FML. edit transaction</a>
@@ -40,7 +49,7 @@ System.out.println(v_chk.getIsCleared());
 <input type="hidden" name="checkId" value="<%=v_chk.getCheckId() %>"/>  
 <table>  
 <tr><td>. date:</td><td>
-<input type="date" class="date"  name="checkDate" value="<%= v_chk.getCheckDate()%>" size="15"/></td></tr>  
+<input type="date" class="date"  id="datepicker" name="checkDate" value="<%= v_chk.getCheckDate()%>" size="15"/></td></tr>  
 <tr height = 10px></tr>
 <tr><td>. type:</td><td>
 <% if(v_chk.getTypeName().toString().equals("income")) {%>

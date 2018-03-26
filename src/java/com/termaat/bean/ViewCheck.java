@@ -12,7 +12,7 @@ import java.sql.Date;
  */
 public class ViewCheck {
 
-    private int checkId, checkAmt;
+    private int checkId, checkAmt, checkBal;
     private Date checkDate;
     private String typeName, categName, checkName, scheckDate;
     private Boolean isCleared;
@@ -122,6 +122,11 @@ public class ViewCheck {
         this.isCleared = isCleared;
     }
  
+    public int getCheckBal(){
+        return checkBal;
+    }
     
-    
+    public void setCheckBal(int checkBal){
+        this.checkBal = checkBal;
+    }
 }

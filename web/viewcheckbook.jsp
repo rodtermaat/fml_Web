@@ -28,7 +28,8 @@
                 <%
                     int viewBalance = 0;
                     int amt = 0;
-                    List<ViewCheck> list = CheckDao.getAllRecords();
+                    //List<ViewCheck> list = CheckDao.getAllRecords();
+                    List<ViewCheck> list = CheckDao.getCheckbook();
                     request.setAttribute("list", list);
                 %>  
                 <table class="greyGridTable">  
@@ -71,7 +72,7 @@
                             <td>${v_chk.getCategName()}</td>
                             <td>${v_chk.getCheckName()}</td>
                             <td>${v_chk.getCheckAmt()}</td>
-                            <td>${balance}</td>
+                            <td>${v_chk.getCheckBal()}</td>
                             <td><a href="editcheckform.jsp?id=${v_chk.getCheckId()}">edit</a></td>  
                             <td><a href="deletecheck.jsp?checkId=${v_chk.getCheckId()}">delete</a></td></tr>  
                         </c:forEach>  

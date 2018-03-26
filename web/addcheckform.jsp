@@ -11,6 +11,15 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>add transaction</title>
         <link href="resources/css/mystyle.css" type="text/css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  
+        <script>
+            $(document).ready(function() {
+            $("#datepicker").datepicker({ dateFormat: "yy-mm-dd" });
+        });
+        </script>
     </head>
     <div class="header">
         <a href="#default" class="logo"> FML. add transaction</a>
@@ -24,7 +33,7 @@
             <table border="0">
                 <tr>
                     <td>. date</td>
-                    <td><input type="date" class="date" name="checkDate" value="" size="15" /></td>
+                    <td><input type="date" id="datepicker" class="date" name="checkDate" value="" size="15" /></td>
                 </tr>
                 <tr height = 10px></tr>
                 <tr>

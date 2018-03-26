@@ -11,16 +11,25 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>checkbook</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>view checkbook</title>
+        <link href="resources/css/mystyle.css" type="text/css" rel="stylesheet" />
     </head>
+    <div class="header">
+        <a href="#default" class="logo"> FML. checkbook</a>
+        <div class="header-right">
+            <a class="active" href="index.jsp">logout</a>
+        </div>
+    </div>
     <body>
-        <h1>. checkbook</h1>
+        <%@page import="com.termaat.dao.CheckDao,com.termaat.bean.*,java.util.*"%>  
+        <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+        <div class="row"><br></div>
+        <div class="row">
+            <div class="column left">
         <%
-            String uid = session.getAttribute("userName").toString();
-            //String username = request.getParameter("username");
-            //String password = request.getParameter("password");
+            //String uid = session.getAttribute("userName").toString();
         %>
-        <h2>Hello <%= uid %></h2>
         <%!
             public class Checkbook {
                 String url = "jdbc:mysql://localhost:3306/fuckmylife";
@@ -46,7 +55,8 @@
                         " INNER JOIN `category` cat" +
                                 " on chk.checkCategId = cat.categId" +
                         " INNER JOIN `trantype` typ" +
-                                " on chk.checkTypeId = typ.typeId");
+                                " on chk.checkTypeId = typ.typeId" +
+                        " ORDER BY chk.checkDate");
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -68,18 +78,36 @@
             ResultSet checks = checkbook.getChecks();
             int balance = 0;
         %>
-        <table border="2" width="60%">
-            <tbody>
+        <table class="greyGridTable">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>cleared</th>
+                    <th>date</th>
+                    <th>type</th>  
+                    <th>category</th>
+                    <th>description</th>
+                    <th>amount</th>
+                    <th>balance</th>
+                    <th></th>
+                    <th></th>
+                </tr>  
+             </thead>
+             <tfoot>
                 <tr>
                     <td>id</td>
                     <td>cleared</td>
                     <td>date</td>
-                    <td>type</td>
+                    <td>type</td>  
                     <td>category</td>
                     <td>name</td>
                     <td>amount</td>
                     <td>balance</td>
+                    <td></td>
+                    <td></td>
                 </tr>
+            </tfoot>
+            <tbody>
                 <% while (checks.next()) { 
                         balance = balance + checks.getInt("checkAmt");
                 %>
@@ -100,6 +128,14 @@
                 <% } %>
             </tbody>
         </table>
-
+        <h2></h2>
+        <form name="addcheck" action="addcheckform.jsp" method="POST">
+            <input class="butt" type="submit" value="new" name="btnAdd" />
+        </form>
+        </div>
+        <div class="column right" style="background-color:#bbb;">
+            <h2>some test text to see if the columns work</h2>         
+        </div>
+        </div>
     </body>
 </html>

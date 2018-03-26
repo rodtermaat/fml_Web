@@ -111,7 +111,7 @@ table.greyGridTable td:nth-child(1){
 
 table.greyGridTable thead {
   background: #FFFFFF;
-  border-bottom: 4px solid #333333;
+  border-bottom: 3px solid #333333;
 }
 table.greyGridTable thead th {
   font-size: 15px;

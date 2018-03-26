@@ -75,6 +75,40 @@ public static int deleteCheck(ViewCheck chk){
     return status;  
 }
 
+public static List<ViewCheck> getCheckbook(){
+    List<ViewCheck> list=new ArrayList<ViewCheck>();  
+      
+    try{  
+        Connection con=getConnection();  
+        PreparedStatement ps=con.prepareStatement(
+    "SELECT (SELECT u.userUID FROM `user` u" + 
+            " WHERE u.userId = c.checkUser) as checkUser," +
+    " c.checkId, c.checkDate," +
+    " (SELECT t.typeName FROM trantype t" + 
+            " WHERE t.typeId = c.checkTypeId) as typeName," +
+    " (SELECT cat.categName FROM `category` cat" + 
+            " WHERE cat.categId = c.checkCategId) as categName," + 
+    " c.checkName, c.checkCleared, c.checkAmt," +
+    " @balance:=@balance+c.checkAmt AS checkBal FROM `checkbook` c," +
+    " (SELECT @balance:=0) AS t ORDER BY c.checkDate, c.checkId;");
+        
+        ResultSet rs=ps.executeQuery();  
+        while(rs.next()){  
+            ViewCheck chk=new ViewCheck();  
+            chk.setCheckId(rs.getInt("checkId"));  
+            chk.setCheckDate(rs.getDate("checkDate"));
+            chk.setTypeName(rs.getString("typeName"));  
+            chk.setCategName(rs.getString("categName"));
+            chk.setCheckName(rs.getString("checkName"));
+            chk.setCheckAmt(rs.getInt("checkAmt"));
+            chk.setIsCleared(rs.getBoolean("checkCleared"));
+            chk.setCheckBal((rs.getInt("checkBal")));
+            list.add(chk);  
+        }  
+    }catch(Exception e){System.out.println(e);}  
+    return list;
+}
+
 public static List<ViewCheck> getAllRecords(){  
     List<ViewCheck> list=new ArrayList<ViewCheck>();  
       
@@ -90,7 +124,8 @@ public static List<ViewCheck> getAllRecords(){
                         " INNER JOIN `category` cat" +
                                 " on chk.checkCategId = cat.categId" +
                         " INNER JOIN `trantype` typ" +
-                                " on chk.checkTypeId = typ.typeId");
+                                " on chk.checkTypeId = typ.typeId" +
+                        " ORDER BY chk.checkDate");
         
         ResultSet rs=ps.executeQuery();  
         while(rs.next()){  
