@@ -10,7 +10,7 @@
 <%
 int _checkId= Integer.parseInt(request.getParameter("checkId"));
 java.sql.Date _checkDate = java.sql.Date.valueOf(request.getParameter("checkDate"));
-int _checkTypeId = Integer.parseInt(request.getParameter("typeName"));
+String _checkType = request.getParameter("typeName");
 int _checkCategId = Integer.parseInt(request.getParameter("categName"));
 String _checkName = request.getParameter("checkName");
 int _checkAmt = Integer.parseInt(request.getParameter("checkAmt"));
@@ -22,7 +22,7 @@ if (Boolean.parseBoolean(request.getParameter("isCleared"))){
 
 System.out.println(_checkId);
 System.out.println(_checkDate);
-System.out.println(_checkTypeId);
+System.out.println(_checkType);
 System.out.println(_checkCategId);
 System.out.println(_checkName);
 System.out.println(_checkAmt);
@@ -30,7 +30,7 @@ System.out.println(_checkCleared);
 
 e_chk.setCheckId(_checkId);
 e_chk.setCheckDate(_checkDate);
-e_chk.setCheckTypeId(_checkTypeId);
+e_chk.setCheckType(_checkType);
 e_chk.setCheckCategId(_checkCategId);
 e_chk.setCheckName(_checkName);
 e_chk.setCheckAmt(_checkAmt);

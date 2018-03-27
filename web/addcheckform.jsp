@@ -39,11 +39,8 @@
                 <tr>
                     <td>. type</td>
                     <td>
-                        <input type="radio" name="typeName" value="1"/> income
-                        <input type="radio" name="typeName" value="2"/> bills
-                        <input type="radio" name="typeName" value="3"/> unplanned expense
-                        <input type="radio" name="typeName" value="4"/> budgeted expense
-                        <input type="radio" name="typeName" value="5"/> savings
+                        <input type="radio" name="typeName" value="credit"/> credit
+                        <input type="radio" name="typeName" value="debit"/> debit
                     </td></tr>
                 <tr height = 10px></tr>
                 <tr>

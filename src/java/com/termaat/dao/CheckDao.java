@@ -31,9 +31,9 @@ public static int addCheck(AddCheck a_chk){
     try{  
         Connection con=getConnection();  
         PreparedStatement ps=con.prepareStatement(  
-        "INSERT INTO checkbook(checkDate,checkTypeId, checkCategId,checkName, checkAmt, checkCleared, checkUser) values(?,?,?,?,?,?,1)"); 
+        "INSERT INTO checkbook(checkDate,checkType, checkCategId,checkName, checkAmt, checkCleared, checkUser) values(?,?,?,?,?,?,1)"); 
         ps.setDate(1,a_chk.getCheckDate());  
-        ps.setInt(2,a_chk.getCheckTypeId());  
+        ps.setString(2,a_chk.getCheckType());  
         ps.setInt(3,a_chk.getCheckCategId());  
         ps.setString(4,a_chk.getCheckName());  
         ps.setInt(5,a_chk.getCheckAmt());  
@@ -48,11 +48,11 @@ public static int updateCheck(EditCheck e_chk){
     try{  
         Connection con=getConnection();  
         PreparedStatement ps=con.prepareStatement(  
-                "UPDATE checkbook set checkDate=?, checkTypeId=?," +
+                "UPDATE checkbook set checkDate=?, checkType=?," +
                 " checkCategId=?,checkName=?,checkAmt=?," +
                 " checkCleared=? where checkId=?");  
         ps.setDate(1,e_chk.getCheckDate());  
-        ps.setInt(2,e_chk.getCheckTypeId());  
+        ps.setString(2,e_chk.getCheckType());  
         ps.setInt(3,e_chk.getCheckCategId());  
         ps.setString(4,e_chk.getCheckName());  
         ps.setInt(5,e_chk.getCheckAmt());  
@@ -83,9 +83,7 @@ public static List<ViewCheck> getCheckbook(){
         PreparedStatement ps=con.prepareStatement(
     "SELECT (SELECT u.userUID FROM `user` u" + 
             " WHERE u.userId = c.checkUser) as checkUser," +
-    " c.checkId, c.checkDate," +
-    " (SELECT t.typeName FROM trantype t" + 
-            " WHERE t.typeId = c.checkTypeId) as typeName," +
+    " c.checkId, c.checkDate, c.checkType as typeName," +
     " (SELECT cat.categName FROM `category` cat" + 
             " WHERE cat.categId = c.checkCategId) as categName," + 
     " c.checkName, c.checkCleared, c.checkAmt," +
@@ -149,15 +147,13 @@ public static ViewCheck getRecordById(int id){
         Connection con=getConnection();  
         PreparedStatement ps=con.prepareStatement(
                 "SELECT chk.checkId, chk.checkDate," + 
-                        " typ.typeName, cat.categName," +
+                        " chk.checkType as typeName, cat.categName," +
                         " chk.checkName, chk.checkAmt, chk.checkCleared" +
                         " FROM `checkbook` chk" +
                         " INNER JOIN `user` on chk.checkUser = user.userId" +
                                 " AND user.userUID = 'Admin'" +
                         " INNER JOIN `category` cat" +
                                 " on chk.checkCategId = cat.categId" +
-                        " INNER JOIN `trantype` typ" +
-                                " on chk.checkTypeId = typ.typeId" +
                         " WHERE checkId=?");
         ps.setInt(1,id);  
         ResultSet rs=ps.executeQuery();  

@@ -14,9 +14,9 @@ import java.sql.Date;
 
 public class AddCheck {
 
-    private int checkAmt, checkTypeId, checkCategId;
+    private int checkAmt, checkCategId;
     private Date checkDate;
-    private String checkName;
+    private String checkName, checkType;
     private Boolean isCleared;    
 
 
@@ -35,17 +35,17 @@ public class AddCheck {
     }
 
     /**
-     * @return the checkTypeId
+     * @return the checkType
      */
-    public int getCheckTypeId() {
-        return checkTypeId;
+    public String getCheckType() {
+        return checkType;
     }
 
     /**
-     * @param checkTypeId the checkTypeId to set
+     * @param checkType the checkType to set
      */
-    public void setCheckTypeId(int checkTypeId) {
-        this.checkTypeId = checkTypeId;
+    public void setCheckType(String checkType) {
+        this.checkType = checkType;
     }
 
     /**

@@ -52,35 +52,18 @@ System.out.println(v_chk.getIsCleared());
 <input type="date" class="date"  id="datepicker" name="checkDate" value="<%= v_chk.getCheckDate()%>" size="15"/></td></tr>  
 <tr height = 10px></tr>
 <tr><td>. type:</td><td>
-<% if(v_chk.getTypeName().toString().equals("income")) {%>
-    <input type="radio" name="typeName" value="1" checked="checked"/> income
+<% if(v_chk.getTypeName().toString().equals("credit")) {%>
+    <input type="radio" name="typeName" value="credit" checked="checked"/> credit
 <%} else { %>
-    <input type="radio" name="typeName" value="1"/> income
+    <input type="radio" name="typeName" value="credit"/> credit
 <% } %>
 
-<% if(v_chk.getTypeName().toString().equals("bills")) {%>
-    <input type="radio" name="typeName" value="2" checked="checked"/> bills
+<% if(v_chk.getTypeName().toString().equals("debit")) {%>
+    <input type="radio" name="typeName" value="debit" checked="checked"/> debit
 <%} else { %>
-    <input type="radio" name="typeName" value="2"/> bills
+    <input type="radio" name="typeName" value="debit"/> debit
 <% } %>
 
-<% if(v_chk.getTypeName().toString().equals("unplanned expense")) {%>
-    <input type="radio" name="typeName" value="3" checked="checked"/> unplanned expense
-<%} else { %>
-    <input type="radio" name="typeName" value="3"/> unplanned expense
-<% } %>
-
-<% if(v_chk.getTypeName().toString().equals("budget")) {%>
-    <input type="radio" name="typeName" value="4" checked="checked"/> budgeted expense
-<%} else { %>
-    <input type="radio" name="typeName" value="4"/> budgeted expense
-<% } %>
-
-<% if(v_chk.getTypeName().toString().equals("savings")) {%>
-    <input type="radio" name="typeName" value="5" checked="checked"/> savings</td></tr>  
-<%} else { %>
-    <input type="radio" name="typeName" value="5"/> savings</td></tr>
-<% } %>
 <tr height = 10px></tr>
 <tr><td>. category:</td><td>  
 <% if(v_chk.getCategName().toString().equals("account")) {%>
