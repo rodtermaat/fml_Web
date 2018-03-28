@@ -20,6 +20,13 @@ if (Boolean.parseBoolean(request.getParameter("isCleared"))){
     _checkCleared = true;
 }
 
+if (_checkType.equals("credit") && _checkAmt < 0){
+    _checkAmt = _checkAmt*-1;
+}
+if (_checkType.equals("debit")&& _checkAmt > 0){
+    _checkAmt = _checkAmt*-1;
+}
+
 System.out.println(_checkId);
 System.out.println(_checkDate);
 System.out.println(_checkType);

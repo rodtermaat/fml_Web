@@ -14,12 +14,43 @@
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-  
+
+   
 <script>
     $(document).ready(function() {
     $("#datepicker").datepicker({ dateFormat: "yy-mm-dd" });
 });
 </script>
+<script type="text/javascript">
+         <!--
+        function validate() {
+        if( document.editcheck.checkDate.value == "" )
+         {
+            alert( "you cannot submit without a date" );
+            document.editcheck.checkDate.focus() ;
+            return false;
+         }
+        
+        if( document.editcheck.checkName.value === "" )
+         {
+            alert( "add a description, please" );
+            document.editcheck.checkName.focus() ;
+            return false;
+         }
+         
+         if( document.editcheck.checkAmt.value === "" )
+         {
+            alert( "what the? add a damn amount already" );
+            document.editcheck.checkAmt.focus() ;
+            return false;
+         }
+         
+
+         return( true );
+        }
+         //-->
+        </script>
+
 </head>  
     <div class="header">
         <a href="#default" class="logo"> FML. edit transaction</a>
@@ -45,7 +76,8 @@ System.out.println(v_chk.getCheckName());
 System.out.println(v_chk.getCheckAmt());
 System.out.println(v_chk.getIsCleared());
 %>
-<form action="editcheck.jsp" method="post">  
+<form name="editcheck" action="editcheck.jsp" method="post"
+      onsubmit="return(validate());">  
 <input type="hidden" name="checkId" value="<%=v_chk.getCheckId() %>"/>  
 <table>  
 <tr><td>. date:</td><td>

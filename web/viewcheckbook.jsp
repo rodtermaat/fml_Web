@@ -16,6 +16,43 @@
         }
     });
     </script>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+          ['Mushrooms', 3],
+          ['Onions', 1],
+          ['Olives', 1],
+          ['Zucchini', 1],
+          ['Pepperoni', 2]
+        ]);
+
+        // Set chart options
+        var options = {'title':'spending at a glance',
+                       'width':450,
+                       'height':350};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
     <head>  
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,7 +68,7 @@
     <body>  
         <%@page import="com.termaat.dao.CheckDao,com.termaat.bean.*,java.util.*"%>  
         <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-        <div class="row"><br></div>
+        <!--<div class="row"><br></div>-->
         <div class="row">
             <div class="column left">
                 <%
@@ -41,6 +78,7 @@
                     List<ViewCheck> list = CheckDao.getCheckbook();
                     request.setAttribute("list", list);
                 %>  
+                <h2></h2>
                 <table class="greyGridTable">  
                     <thead>
                         <tr>
@@ -92,8 +130,9 @@
                     <input class="butt" type="submit" value="new" name="btnAdd" />
                 </form>
             </div>
-            <div class="column right" style="background-color:#bbb;">
-                <h2>some test text to see if the columns work</h2>         
+            <div class="column right">
+                <!--Div that will hold the pie chart-->
+                    <div id="chart_div"></div>
             </div>
         </div>
     </body>  

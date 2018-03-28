@@ -20,6 +20,62 @@
             $("#datepicker").datepicker({ dateFormat: "yy-mm-dd" });
         });
         </script>
+        <script type="text/javascript">
+         <!--
+        function validate() {
+      
+         if( document.addcheck.checkDate.value == "" )
+         {
+            alert( "you cannot submit without a date" );
+            document.addcheck.checkDate.focus() ;
+            return false;
+         }
+
+        var typeNames = document.getElementsByName("typeName");
+        if (typeNames[0].checked == true) {
+        } else if (typeNames[1].checked == true) {
+        } else {
+           // no checked
+           alert( "credit vs. debit, very important field this is" );
+           return false;
+        }
+        
+        var categNames = document.getElementsByName("categName");
+        if (categNames[0].checked == true) {
+        } else if (categNames[1].checked == true) {
+        } else if (categNames[2].checked == true) {
+        } else if (categNames[3].checked == true) {
+        } else if (categNames[4].checked == true) {
+        } else if (categNames[5].checked == true) {
+        } else if (categNames[6].checked == true) {
+        } else if (categNames[7].checked == true) {
+        } else if (categNames[8].checked == true) {
+        } else if (categNames[9].checked == true) {
+        } else if (categNames[10].checked == true) {
+        } else {
+           // no checked
+           alert( "no category equals no addy addy" );
+           return false;
+        }
+        
+        if( document.addcheck.checkName.value === "" )
+         {
+            alert( "add a description, please" );
+            document.addcheck.checkName.focus() ;
+            return false;
+         }
+         if( document.addcheck.checkAmt.value === "" )
+         {
+            alert( "what the? add a damn amount already" );
+            document.addcheck.checkAmt.focus() ;
+            return false;
+         }
+         
+
+         return( true );
+        }
+         //-->
+        </script>
     </head>
     <div class="header">
         <a href="#default" class="logo"> FML. add transaction</a>
@@ -29,7 +85,8 @@
     </div>
     <body>
         <h1></h1>
-        <form name="addcheck" action="addcheck.jsp" method="POST">
+        <form name="addcheck" action="addcheck.jsp" method="POST"
+              onsubmit="return(validate());">
             <table border="0">
                 <tr>
                     <td>. date</td>
