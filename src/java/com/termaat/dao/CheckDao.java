@@ -75,21 +75,23 @@ public static int deleteCheck(ViewCheck chk){
     return status;  
 }
 
-public static List<ViewCheck> getCheckbook(){
+public static List<ViewCheck> getCheckbook(int theUser){
     List<ViewCheck> list=new ArrayList<ViewCheck>();  
       
     try{  
         Connection con=getConnection();  
         PreparedStatement ps=con.prepareStatement(
-    "SELECT (SELECT u.userUID FROM `user` u" + 
+        "SELECT (SELECT u.userUID FROM `user` u" + 
             " WHERE u.userId = c.checkUser) as checkUser," +
-    " c.checkId, c.checkDate, c.checkType as typeName," +
-    " (SELECT cat.categName FROM `category` cat" + 
+        " c.checkId, c.checkDate, c.checkType as typeName," +
+        " (SELECT cat.categName FROM `category` cat" + 
             " WHERE cat.categId = c.checkCategId) as categName," + 
-    " c.checkName, c.checkCleared, c.checkAmt," +
-    " @balance:=@balance+c.checkAmt AS checkBal FROM `checkbook` c," +
-    " (SELECT @balance:=0) AS t ORDER BY c.checkDate, c.checkId;");
+        " c.checkName, c.checkCleared, c.checkAmt," +
+        " @balance:=@balance+c.checkAmt AS checkBal FROM `checkbook` c," +
+        " (SELECT @balance:=0) AS t" +
+        " WHERE c.checkUser =? ORDER BY c.checkDate, c.checkId;");
         
+        ps.setInt(1,theUser);
         ResultSet rs=ps.executeQuery();  
         while(rs.next()){  
             ViewCheck chk=new ViewCheck();  

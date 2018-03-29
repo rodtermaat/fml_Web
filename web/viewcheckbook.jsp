@@ -74,11 +74,13 @@
                 <%
                     int viewBalance = 0;
                     int amt = 0;
+                    String s_userId = session.getAttribute("userId").toString();
+                    int userId = Integer.valueOf(s_userId);
                     //List<ViewCheck> list = CheckDao.getAllRecords();
-                    List<ViewCheck> list = CheckDao.getCheckbook();
+                    List<ViewCheck> list = CheckDao.getCheckbook(userId);
                     request.setAttribute("list", list);
                 %>  
-                <h2></h2>
+                <h2>you are user number <%= userId%> </h2>
                 <table class="greyGridTable">  
                     <thead>
                         <tr>
@@ -127,8 +129,9 @@
                 </table>
                 <h2></h2>
                 <form name="addcheck" action="addcheckform.jsp" method="POST">
-                    <input class="butt" type="submit" value="new" name="btnAdd" />
-                </form>
+                    <%session.setAttribute("userId", userId);%>
+                    <input class="butt" type="submit" value="new" name="btnAdd"/>
+                </form>    
             </div>
             <div class="column right">
                 <!--Div that will hold the pie chart-->

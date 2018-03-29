@@ -72,16 +72,31 @@ and open the template in the editor.
 }
 
 .butt {
-   border: 1px outset black;
    background-color: white;
-   height:30px;
-   width:60px;
-   cursor:pointer;
+    border: 2px solid #555555;
+    color: black;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    height:30px;
 }
 
 .butt:hover {
    background-color:black;
    color:white;
+}
+
+.longbutt{
+    width:90px;
+}
+.shortbutt{
+    width:60px;
 }
 
 table.greyGridTable {
