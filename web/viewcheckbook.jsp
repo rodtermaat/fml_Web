@@ -131,6 +131,7 @@
                 <form name="addcheck" action="addcheckform.jsp" method="POST">
                     <%session.setAttribute("userId", userId);%>
                     <input class="butt" type="submit" value="new" name="btnAdd"/>
+                    <a href="viewcategories.jsp">     manage categories</a>
                 </form>    
             </div>
             <div class="column right">

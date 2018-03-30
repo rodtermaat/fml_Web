@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;  
 import com.termaat.bean.ViewCheck;
 import com.termaat.bean.EditCheck;
+import com.termaat.bean.ManageCateg;
 
 /**
  *
@@ -109,35 +110,22 @@ public static List<ViewCheck> getCheckbook(int theUser){
     return list;
 }
 
-public static List<ViewCheck> getAllRecords(){  
-    List<ViewCheck> list=new ArrayList<ViewCheck>();  
+public static List<ManageCateg> getCategories(int theUser){  
+    List<ManageCateg> list=new ArrayList<ManageCateg>();  
       
     try{  
         Connection con=getConnection();  
         PreparedStatement ps=con.prepareStatement(
-                        "SELECT chk.checkId, chk.checkDate," + 
-                        " typ.typeName, cat.categName," +
-                        " chk.checkName, chk.checkAmt, chk.checkCleared" +
-                        " FROM `checkbook` chk" +
-                        " INNER JOIN `user` on chk.checkUser = user.userId" +
-                                " AND user.userUID = 'Admin'" +
-                        " INNER JOIN `category` cat" +
-                                " on chk.checkCategId = cat.categId" +
-                        " INNER JOIN `trantype` typ" +
-                                " on chk.checkTypeId = typ.typeId" +
-                        " ORDER BY chk.checkDate");
+                        "SELECT * from `category` WHERE categUser=?");
         
+        ps.setInt(1,theUser);
         ResultSet rs=ps.executeQuery();  
         while(rs.next()){  
-            ViewCheck chk=new ViewCheck();  
-            chk.setCheckId(rs.getInt("checkId"));  
-            chk.setCheckDate(rs.getDate("checkDate"));
-            chk.setTypeName(rs.getString("typeName"));  
-            chk.setCategName(rs.getString("categName"));
-            chk.setCheckName(rs.getString("checkName"));
-            chk.setCheckAmt(rs.getInt("checkAmt"));
-            chk.setIsCleared(rs.getBoolean("checkCleared"));
-            list.add(chk);  
+            ManageCateg cat=new ManageCateg();  
+            cat.setCategId(rs.getInt("categId"));  
+            cat.setCategName(rs.getString("categName"));
+            cat.setCategBudgAmt(rs.getInt("categBudgAmt"));  
+            list.add(cat);  
         }  
     }catch(Exception e){System.out.println(e);}  
     return list;  

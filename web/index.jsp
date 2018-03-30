@@ -63,8 +63,7 @@
                 </tbody>
             </table>
             <br>
-            <input class="butt shortbutt" type="reset" value="reset" name="reset" />
-            <input class="butt longbutt" type="submit" value="submit this now" name="submit" />            
+            <input class="butt" type="submit" value="submit" name="submit" />
         </form>
     </body>
 </html>

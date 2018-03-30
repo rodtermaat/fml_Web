@@ -72,31 +72,23 @@ and open the template in the editor.
 }
 
 .butt {
-   background-color: white;
-    border: 2px solid #555555;
+    background-color: white;
+    border: 2px solid black;
     color: black;
-    padding: 16px 32px;
+    padding: 12px 22px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 14px;
     margin: 4px 2px;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     cursor: pointer;
-    height:30px;
 }
 
 .butt:hover {
    background-color:black;
    color:white;
-}
-
-.longbutt{
-    width:90px;
-}
-.shortbutt{
-    width:60px;
 }
 
 table.greyGridTable {
@@ -153,7 +145,64 @@ table.greyGridTable tfoot {
 table.greyGridTable tfoot td {
   font-size: 14px;
   font-style: italic
-}  
+}
+
+table.categTable {
+  border: 2px solid #FFFFFF;
+  width: 99%;
+  text-align: center;
+  border-collapse: collapse;
+  empty-cells: show;
+}
+table.categTable td, table.categTable th {
+  border: 1px solid #FFFFFF;
+  padding: 3px 4px;
+}
+table.categTable tbody td {
+  font-size: 13px;
+}
+table.categTable td:nth-child(even) {
+  background: #EBEBEB;
+}
+
+table.categTable th:nth-child(1){
+    display: none;
+}
+
+table.categTable td:nth-child(1){
+    display: none;
+}
+
+table.categTable thead {
+  background: #FFFFFF;
+  border-bottom: 3px solid #333333;
+}
+table.categTable thead th {
+  font-size: 15px;
+  font-weight: bold;
+  color: #333333;
+  text-align: center;
+  border-left: 2px solid #333333;
+}
+table.categTable thead th:first-child {
+  border-left: none;
+}
+
+table.categTable thead th:last-child {
+  border-left: none;
+}
+
+table.categTable tfoot {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333333;
+  border-top: 3px solid #333333;
+}
+
+table.categTable tfoot td {
+  font-size: 14px;
+  font-style: italic
+} 
 
 @media screen and (max-width: 500px) {
   .header a {
