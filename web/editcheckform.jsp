@@ -63,7 +63,7 @@
   
 <%  
 String id=request.getParameter("id");  
-ViewCheck v_chk=CheckDao.getRecordById(Integer.parseInt(id));  
+ViewCheck v_chk=CheckDao.getCheckById(Integer.parseInt(id));  
 %>  
   
 <h1></h1> 

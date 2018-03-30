@@ -72,8 +72,6 @@
         <div class="row">
             <div class="column left">
                 <%
-                    int viewBalance = 0;
-                    int amt = 0;
                     String s_userId = session.getAttribute("userId").toString();
                     int userId = Integer.valueOf(s_userId);
                     //List<ViewCheck> list = CheckDao.getAllRecords();
@@ -110,12 +108,9 @@
                             <td></td>
                         </tr>
                     </tfoot>
-                    <c:set var="balance" value="${0}"/>
                     <c:forEach items="${list}" var="v_chk">
-                        <c:set var="balance" value="${balance + 1}"/> 
                         <tr>
                             <td>${v_chk.getCheckId()}</td>
-                            <!--<td><input type="checkbox" id="iscleared" name="iscleared" value=${v_chk.getIsCleared()}/></td>-->
                             <td>${v_chk.getIsCleared()}</td>
                             <td>${v_chk.getCheckDate()}</td>  
                             <td>${v_chk.getTypeName()}</td>

@@ -39,7 +39,8 @@
                             <th>id</th>
                             <th>category</th>
                             <th>budgeted amount</th>
-                            <th>budget frequency</th>  
+                            <th></th>
+                            <th>budget frequency</th>
                             <th></th>
                             <th></th>
                         </tr>  
@@ -49,6 +50,7 @@
                             <td>id</td>
                             <td>category</td>
                             <td>budgeted amount</td>
+                            <td></td>
                             <td>budget frequency</td>  
                             <td></td>
                             <td></td>
@@ -58,7 +60,8 @@
                         <tr>
                             <td>${v_cat.getCategId()}</td>
                             <td>${v_cat.getCategName()}</td>
-                            <td>${v_cat.getCategBudgAmt()}</td>  
+                            <td>${v_cat.getCategBudgAmt()}</td>
+                            <td>1</td>
                             <td>${v_cat.getCategBudgFrq()}</td>
                             <td><a href="editcategform.jsp?id=${v_cat.getCategId()}">edit</a></td>  
                             <td><a href="deletcateg.jsp?categId=${v_cat.getCategId()}">delete</a></td></tr>  

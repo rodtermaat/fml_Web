@@ -124,14 +124,15 @@ public static List<ManageCateg> getCategories(int theUser){
             ManageCateg cat=new ManageCateg();  
             cat.setCategId(rs.getInt("categId"));  
             cat.setCategName(rs.getString("categName"));
-            cat.setCategBudgAmt(rs.getInt("categBudgAmt"));  
+            cat.setCategBudgAmt(rs.getInt("categBudgAmt"));
+            cat.setCategBudgFrq(rs.getString("categBudgFrq"));
             list.add(cat);  
         }  
     }catch(Exception e){System.out.println(e);}  
     return list;  
     }
 
-public static ViewCheck getRecordById(int id){  
+public static ViewCheck getCheckById(int id){  
     ViewCheck chk=null;  
     try{  
         Connection con=getConnection();  
@@ -161,13 +162,23 @@ public static ViewCheck getRecordById(int id){
     return chk;  
 }  
 
-//set @balance=0;
-//select userUID, chk.checkDate, trn.typeName, cat.categName, chk.checkName, chk.checkAmt,
-//@balance:=@balance+chk.checkAmt as balance
-//from `checkbook` chk
-//inner join `user` on userId = checkUser
-//inner join `trantype` trn on trn.typeId= chk.checkTypeId
-//inner join `category` cat on cat.categId = chk.checkCategId 
-//order by checkDate;
+public static ManageCateg getCategById(int id){  
+    ManageCateg cat=null;  
+    try{  
+        Connection con=getConnection();  
+        PreparedStatement ps=con.prepareStatement(
+                "SELECT * FROM `category` c WHERE c.categId=?");
+        ps.setInt(1,id);  
+        ResultSet rs=ps.executeQuery();  
+        while(rs.next()){  
+            cat=new ManageCateg();  
+            cat.setCategId(rs.getInt("categId"));  
+            cat.setCategName(rs.getString("categName"));  
+            cat.setCategBudgAmt(rs.getInt("categBudgAmt"));  
+            cat.setCategBudgFrq(rs.getString("categBudgFrq"));  
+        }  
+    }catch(Exception e){System.out.println(e);}  
+    return cat;  
+}  
 
 }
