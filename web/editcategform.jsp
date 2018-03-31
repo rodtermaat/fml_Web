@@ -19,32 +19,37 @@
 <script type="text/javascript">
          <!--
         function validate() {
-        if( document.editcheck.checkDate.value == "" )
+        if( document.editcateg.categName.value === "" )
          {
-            alert( "you cannot submit without a date" );
-            document.editcheck.checkDate.focus() ;
+            alert( "you cannot submit without a category name" );
+            document.editcateg.categName.focus();
             return false;
          }
         
-        if( document.editcheck.checkName.value === "" )
+        var frq = document.editcateg.categBudgFrq.value
+        var xfrq = frq.toUpperCase();
+        
+        if( xfrq == "M" || xfrq == "W" || xfrq == "")
+         { }
+         else
          {
-            alert( "add a description, please" );
-            document.editcheck.checkName.focus() ;
+         alert( "frequency can be blank, M or W only. meaning Monthly or Weekly budget frequency, please correct" );
+            document.editcateg.categBudgFrq.focus() ;
             return false;
          }
          
-         if( document.editcheck.checkAmt.value === "" )
+         var amt = document.editcateg.categBudgAmt.value
+         if (isNaN(amt))
          {
-            alert( "what the? add a damn amount already" );
-            document.editcheck.checkAmt.focus() ;
+            alert( "if you are going to add an amount at least make it numeric" );
+            document.editcateg.categBudgAmt.focus() ;
             return false;
          }
-         
-
+          
          return( true );
         }
          //-->
-        </script>
+</script>
 
 </head>  
     <div class="header">
@@ -63,17 +68,17 @@ ManageCateg e_cat=CheckDao.getCategById(Integer.parseInt(id));
   
 <h1></h1> 
 <%
-//System.out.println(e_cat.getCategId());
-//System.out.println(e_cat.getCategName());
-//System.out.println(e_cat.getCategBudgAmt());
-//System.out.println(e_cat.getCategBudgFrq());
+System.out.println(e_cat.getCategId());
+System.out.println(e_cat.getCategName());
+System.out.println(e_cat.getCategBudgAmt());
+System.out.println(e_cat.getCategBudgFrq());
 %>
 <form name="editcateg" action="editcateg.jsp" method="post"
       onsubmit="return(validate());">  
-<input type="hidden" name="checkId" value="<%=e_cat.getCategId() %>"/>  
+<input type="hidden" name="categId" value="<%=e_cat.getCategId() %>"/>  
 <table>  
 <tr><td>. category:</td><td>
-<input type="text" name="category" value="<%= e_cat.getCategName()%>" size="35"/></td></tr>  
+<input type="text" name="categName" value="<%= e_cat.getCategName()%>" size="35"/></td></tr>  
 <tr height = 10px></tr>
 <tr><td>. budgeted amount:</td><td>  
 <input type="text" name="categBudgAmt" value="<%= e_cat.getCategBudgAmt()%>"/></td></tr>   

@@ -179,6 +179,47 @@ public static ManageCateg getCategById(int id){
         }  
     }catch(Exception e){System.out.println(e);}  
     return cat;  
+}
+
+public static int addCateg(ManageCateg a_cat){  
+    int status=0;  
+    try{  
+        Connection con=getConnection();  
+        PreparedStatement ps=con.prepareStatement(  
+        "INSERT INTO category(categName,categBudgAmt, categBudgFrq, categUser) values(?,?,?,1)"); 
+        ps.setString(1,a_cat.getCategName());  
+        ps.setInt(2,a_cat.getCategBudgAmt());  
+        ps.setString(3,a_cat.getCategBudgFrq());  
+        status=ps.executeUpdate();  
+    }catch(Exception e){System.out.println(e);}  
+    return status;  
 }  
 
+public static int updateCategory(ManageCateg e_cat){  
+    int status=0;  
+    try{  
+        Connection con=getConnection();  
+        PreparedStatement ps=con.prepareStatement(  
+                "UPDATE category set categName=?, categBudgAmt=?," +
+                " categBudgFrq=? where categId=?");  
+        ps.setString(1,e_cat.getCategName()); 
+        ps.setInt(2,e_cat.getCategBudgAmt());  
+        ps.setString(3,e_cat.getCategBudgFrq());  
+        ps.setInt(4,e_cat.getCategId());
+        status=ps.executeUpdate();  
+    }catch(Exception e){System.out.println(e);}  
+    return status;  
+}
+
+public static int deleteCateg(ManageCateg cat){  
+    int status=0;  
+    try{  
+        Connection con=getConnection();  
+        PreparedStatement ps=con.prepareStatement("delete from category where categId=?");  
+        ps.setInt(1,cat.getCategId());  
+        status=ps.executeUpdate();  
+    }catch(Exception e){System.out.println(e);}  
+  
+    return status;  
+}
 }
