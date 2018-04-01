@@ -83,8 +83,8 @@
                     <thead>
                         <tr>
                             <th>id</th>
-                            <th>cleared</th>
                             <th>date</th>
+                            <th>cleared</th>
                             <th>type</th>  
                             <th>category</th>
                             <th>description</th>
@@ -97,8 +97,8 @@
                     <tfoot>
                         <tr>
                             <td>id</td>
-                            <td>cleared</td>
                             <td>date</td>
+                            <td>cleared</td>
                             <td>type</td>  
                             <td>category</td>
                             <td>name</td>
@@ -111,8 +111,13 @@
                     <c:forEach items="${list}" var="v_chk">
                         <tr>
                             <td>${v_chk.getCheckId()}</td>
-                            <td>${v_chk.getIsCleared()}</td>
-                            <td>${v_chk.getCheckDate()}</td>  
+                            <td>${v_chk.getCheckDate()}</td> 
+                            <c:if test="${v_chk.getIsCleared() == true}">
+                                <td>&#10003;</td>
+                            </c:if>
+                            <c:if test="${v_chk.getIsCleared() == false}">
+                                <td></td>
+                            </c:if> 
                             <td>${v_chk.getTypeName()}</td>
                             <td>${v_chk.getCategName()}</td>
                             <td>${v_chk.getCheckName()}</td>
