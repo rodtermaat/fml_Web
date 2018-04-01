@@ -8,6 +8,8 @@
 <jsp:useBean id="a_chk" class="com.termaat.bean.AddCheck"></jsp:useBean>  
 <%--<jsp:setProperty property="*" name="chk"/>--%>
 <%
+String s_userId = session.getAttribute("userId").toString();
+int userId = Integer.valueOf(s_userId);
 java.sql.Date _checkDate = java.sql.Date.valueOf(request.getParameter("checkDate"));
 String _checkType = request.getParameter("typeName");
 int _checkCategId = Integer.parseInt(request.getParameter("categName"));
@@ -41,6 +43,6 @@ a_chk.setCheckName(_checkName);
 a_chk.setCheckAmt(_checkAmt);
 a_chk.setIsCleared(_checkCleared);
 
-int i=CheckDao.addCheck(a_chk);  
+int i=CheckDao.addCheck(a_chk, userId);  
 response.sendRedirect("viewcheckbook.jsp");  
 %>
