@@ -65,7 +65,7 @@
                             <td>${v_cat.getCategBudgFrq()}</td>
                             <td><a href="editcategform.jsp?id=${v_cat.getCategId()}">edit</a></td>  
                             <td><a href="deletecateg.jsp?categId=${v_cat.getCategId()}">delete</a></td></tr>  
-                        </c:forEach>  
+                    </c:forEach>  
                 </table>
                 <h2></h2>
                 <form name="addcateg" action="addcategform.jsp" method="POST">

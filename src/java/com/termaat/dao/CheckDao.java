@@ -27,18 +27,19 @@ public static Connection getConnection(){
     return con;  
 }  
 
-public static int addCheck(AddCheck a_chk){  
+public static int addCheck(AddCheck a_chk, int theUser){  
     int status=0;  
     try{  
         Connection con=getConnection();  
         PreparedStatement ps=con.prepareStatement(  
-        "INSERT INTO checkbook(checkDate,checkType, checkCategId,checkName, checkAmt, checkCleared, checkUser) values(?,?,?,?,?,?,1)"); 
+        "INSERT INTO checkbook(checkDate,checkType, checkCategId,checkName, checkAmt, checkCleared, checkUser) values(?,?,?,?,?,?,?)"); 
         ps.setDate(1,a_chk.getCheckDate());  
         ps.setString(2,a_chk.getCheckType());  
         ps.setInt(3,a_chk.getCheckCategId());  
         ps.setString(4,a_chk.getCheckName());  
         ps.setInt(5,a_chk.getCheckAmt());  
         ps.setBoolean(6,a_chk.getIsCleared());
+        ps.setInt(7, theUser);
         status=ps.executeUpdate();  
     }catch(Exception e){System.out.println(e);}  
     return status;  
@@ -181,15 +182,16 @@ public static ManageCateg getCategById(int id){
     return cat;  
 }
 
-public static int addCateg(ManageCateg a_cat){  
+public static int addCateg(ManageCateg a_cat, int theUser){  
     int status=0;  
     try{  
         Connection con=getConnection();  
         PreparedStatement ps=con.prepareStatement(  
-        "INSERT INTO category(categName,categBudgAmt, categBudgFrq, categUser) values(?,?,?,1)"); 
+        "INSERT INTO category(categName,categBudgAmt, categBudgFrq, categUser) values(?,?,?,?)"); 
         ps.setString(1,a_cat.getCategName());  
         ps.setInt(2,a_cat.getCategBudgAmt());  
-        ps.setString(3,a_cat.getCategBudgFrq());  
+        ps.setString(3,a_cat.getCategBudgFrq());
+        ps.setInt(4, theUser);
         status=ps.executeUpdate();  
     }catch(Exception e){System.out.println(e);}  
     return status;  
