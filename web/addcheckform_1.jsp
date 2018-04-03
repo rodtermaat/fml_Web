@@ -40,24 +40,20 @@
            return false;
         }
         
-        var categNames = document.getElementsByName("categName");
-        if (categNames[0].checked == true) {
-        } else if (categNames[1].checked == true) {
-        } else if (categNames[2].checked == true) {
-        } else if (categNames[3].checked == true) {
-        } else if (categNames[4].checked == true) {
-        } else if (categNames[5].checked == true) {
-        } else if (categNames[6].checked == true) {
-        } else if (categNames[7].checked == true) {
-        } else if (categNames[8].checked == true) {
-        } else if (categNames[9].checked == true) {
-        } else if (categNames[10].checked == true) {
-        } else {
-           // no checked
-           alert( "no category equals no addy addy" );
-           return false;
+        var categNames, cLen, i;
+        var aok = "N";
+        categNames = document.getElementsByName("categName");
+        cLen = categNames.length;
+        for(i=0; i<cLen; i++){
+            if(categNames[i].checked == true){
+                aok = "Y";
+            }
         }
-        
+        if(aok == "N"){
+           alert( "no category equals no addy addy" );
+           return false; 
+        }
+                
         if( document.addcheck.checkName.value === "" )
          {
             alert( "add a description, please" );
