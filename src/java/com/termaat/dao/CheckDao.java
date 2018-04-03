@@ -111,7 +111,8 @@ public static List<ViewCheck> getCheckbook(int theUser){
     return list;
 }
 
-public static List<ManageCateg> getCategories(int theUser){  
+public static List<ManageCateg> getCategories(int theUser){
+    System.out.println("theUser " + theUser);
     List<ManageCateg> list=new ArrayList<ManageCateg>();  
       
     try{  

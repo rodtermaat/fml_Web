@@ -88,10 +88,10 @@
         <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
         <h1></h1>
         <%
-                    String s_userId = session.getAttribute("userId").toString();
-                    int userId = Integer.valueOf(s_userId);
-                    List<ManageCateg> list = CheckDao.getCategories(userId);
-                    request.setAttribute("list", list);
+        String s_userId = session.getAttribute("userId").toString();
+        int userId = Integer.valueOf(s_userId);
+        List<ManageCateg> list = CheckDao.getCategories(userId);
+        request.setAttribute("list", list);
         %>  
         <h2>you are user number <%= userId%> </h2>
                 
@@ -114,7 +114,7 @@
                     <td>. category</td>
                     <td>
                        <c:forEach items="${list}" var="v_cat">
-                            <input type="radio" name="categName" value="${v_cat.getCategId()}"/>${v_cat.getCategName()}
+                            <input type="radio" name="categName" value="${v_cat.getCategId()}" /> ${v_cat.getCategName()} |                            
                        </c:forEach>
                     </td>
                 </tr>

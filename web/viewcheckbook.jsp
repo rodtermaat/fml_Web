@@ -128,7 +128,7 @@
                         </c:forEach>  
                 </table>
                 <h2></h2>
-                <form name="addcheck" action="addcheckform.jsp" method="POST">
+                <form name="addcheck" action="addcheckform_1.jsp" method="POST">
                     <%session.setAttribute("userId", userId);%>
                     <input class="butt" type="submit" value="new" name="btnAdd"/>
                     <a href="viewcategories.jsp">     manage categories</a>
