@@ -45,8 +45,8 @@
 
         // Set chart options
         var options = {'title':'spending at a glance',
-                       'width':450,
-                       'height':350};
+                       'width':600,
+                       'height':600};
 
         // Instantiate and draw our chart, passing in some options.
         var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
@@ -77,8 +77,14 @@
                     //List<ViewCheck> list = CheckDao.getAllRecords();
                     List<ViewCheck> list = CheckDao.getCheckbook(userId);
                     request.setAttribute("list", list);
+                    //<h2>you are user number <%= userId </h2>
                 %>  
-                <h2>you are user number <%= userId%> </h2>
+                <form name="addcheck" action="addcheckform_1.jsp" method="POST">
+                    <%session.setAttribute("userId", userId);%>
+                    <input class="butt" type="submit" value="new" name="btnAdd"/>
+                    <a href="viewcategories.jsp">     manage categories</a>
+                </form>
+                    <h2></h2>
                 <table class="greyGridTable">  
                     <thead>
                         <tr>
@@ -118,7 +124,7 @@
                             <c:if test="${v_chk.getIsCleared() == false}">
                                 <td></td>
                             </c:if> 
-                            <td>${v_chk.getTypeName()}</td>
+                                <td>${v_chk.getTypeName()}</td>
                             <td>${v_chk.getCategName()}</td>
                             <td>${v_chk.getCheckName()}</td>
                             <td>${v_chk.getCheckAmt()}</td>
@@ -126,13 +132,7 @@
                             <td><a href="editcheckform.jsp?id=${v_chk.getCheckId()}">edit</a></td>  
                             <td><a href="deletecheck.jsp?checkId=${v_chk.getCheckId()}">delete</a></td></tr>  
                         </c:forEach>  
-                </table>
-                <h2></h2>
-                <form name="addcheck" action="addcheckform_1.jsp" method="POST">
-                    <%session.setAttribute("userId", userId);%>
-                    <input class="butt" type="submit" value="new" name="btnAdd"/>
-                    <a href="viewcategories.jsp">     manage categories</a>
-                </form>    
+                </table>    
             </div>
             <div class="column right">
                 <!--Div that will hold the pie chart-->

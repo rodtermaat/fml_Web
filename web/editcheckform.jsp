@@ -69,7 +69,8 @@
             List<ManageCateg> list = CheckDao.getCategories(userId);
             request.setAttribute("list", list);
             String checkCategName = v_chk.getCategName();
-            System.out.println("check categ name " + checkCategName);
+            request.setAttribute("catName", checkCategName);
+            //System.out.println("check categ name " + checkCategName);
         %>  
 
         <h1></h1> 
@@ -110,7 +111,7 @@
     <input type="radio" 
            name="categName" 
            value="${v_cat.getCategId()}"
-           <c:if test="${v_cat.getCategName() eq checkCategName}">checked</c:if>
+           <c:if test="${v_cat.getCategName() eq catName}">checked</c:if>
            > ${v_cat.getCategName()} |
     </c:forEach>
                     </td>

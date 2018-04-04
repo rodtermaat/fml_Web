@@ -19,11 +19,11 @@ and open the template in the editor.
 }
 
 .left {
-  width: 60%;
+  width: 55%;
 }
 
 .right {
-  width: 40%;
+  width: 45%;
 }
 
 /* Clear floats after the columns */
@@ -121,7 +121,7 @@ table.greyGridTable thead {
   border-bottom: 3px solid #333333;
 }
 table.greyGridTable thead th {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: bold;
   color: #333333;
   text-align: center;
@@ -136,14 +136,14 @@ table.greyGridTable thead th:last-child {
 }
 
 table.greyGridTable tfoot {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: bold;
   color: #333333;
   border-top: 3px solid #333333;
 }
 
 table.greyGridTable tfoot td {
-  font-size: 14px;
+  font-size: 13px;
   font-style: italic
 }
 
@@ -159,7 +159,7 @@ table.categTable td, table.categTable th {
   padding: 3px 4px;
 }
 table.categTable tbody td {
-  font-size: 13px;
+  font-size: 12px;
 }
 table.categTable td:nth-child(even) {
   background: #EBEBEB;
@@ -178,7 +178,7 @@ table.categTable thead {
   border-bottom: 3px solid #333333;
 }
 table.categTable thead th {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: bold;
   color: #333333;
   text-align: center;
@@ -193,14 +193,14 @@ table.categTable thead th:last-child {
 }
 
 table.categTable tfoot {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: bold;
   color: #333333;
   border-top: 3px solid #333333;
 }
 
 table.categTable tfoot td {
-  font-size: 14px;
+  font-size: 13px;
   font-style: italic
 } 
 
