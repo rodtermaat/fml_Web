@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>. login</title>
-        <link href="resources/css/mystyle.css" type="text/css"
+        <link href="resources/css/style.css" type="text/css"
       rel="stylesheet" />
         
         <script type="text/javascript">
@@ -36,20 +36,19 @@
          //-->
         </script>
     </head>
-    <div class="header">
-        <a href="#default" class="logo"> FML. login</a>
-        <div class="header-right">
-            <a class="active" href="newuser.jsp">register</a>
-            <a href="passreset.jsp">reset password</a>
-            <a href="#about">about</a>
-        </div>
-    </div>
     <body>
-        <h1></h1>
+    <div class="navbar">
+	FML. login
+        <a href="newuser.jsp">register</a>
+        <a href="passreset.jsp">reset password</a>
+        <a href="#about">about</a>
+    </div>
+        <div class="main">
         <form name="loginForm" action="validateuser.jsp" method="POST" 
               onsubmit="return(validate());">
-            <table class="login">
+            <table border="0">
                 <tbody>
+                    
                     <tr>
                         <td>user name: </td>
                         <td><input type="text" name="username" 
@@ -65,5 +64,6 @@
             <br>
             <input class="butt" type="submit" value="submit" name="submit" />
         </form>
+        </div>
     </body>
 </html>

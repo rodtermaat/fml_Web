@@ -49,7 +49,7 @@ and open the template in the editor.
   text-decoration: none;
   font-size: 18px; 
   line-height: 25px;
-  border-radius: 4px;
+  border-radius: 0px;
 }
 
 .header a.logo {
@@ -91,6 +91,10 @@ and open the template in the editor.
    color:white;
 }
 
+table.login{
+  border: 0px;  
+}
+
 table.greyGridTable {
   border: 2px solid #FFFFFF;
   width: 99%;
@@ -109,10 +113,10 @@ table.greyGridTable td:nth-child(even) {
   background: #EBEBEB;
 }
 
-table.greyGridTable th:nth-child(1), th:nth-child(4){
+table.greyGridTable th:nth-child(1), th:nth-child(10){
     display: none;
 }
-table.greyGridTable td:nth-child(1), td:nth-child(4) {
+table.greyGridTable td:nth-child(1), td:nth-child(10) {
     display: none;
 }
 

@@ -4,279 +4,196 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : Mar 17, 2018, 10:19:19 PM
+    Created on : Mar 22, 2018, 4:56:39 PM
     Author     : termaat
 */
 
-/* -----------------------
-Base styles
-------------------------*/
-
-body
-{
-	margin: 0;
-	padding: 0;
-	color: #333;
-	background-color: #eee;
-	font: 1em/1.2 "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+* {
+    box-sizing: border-box;
 }
 
-h1,h2,h3,h4,h5,h6
-{
-	margin: 0 0 .5em;
-	font-weight: 500;
-	line-height: 1.1;
+/* Create two unequal columns that floats next to each other */
+.column {
+    float: left;
+    padding: 10px;
 }
 
-h1 { font-size: 2.25em; } /* 36px */
-h2 { font-size: 1.75em; } /* 28px */
-h3 { font-size: 1.375em; } /* 22px */
-h4 { font-size: 1.125em; } /* 18px */
-h5 { font-size: 1em; } /* 16px */
-h6 { font-size: .875em; } /* 14px */
-
-p
-{
-	margin: 0 0 1.5em;
-	line-height: 1.5;
+.left {
+  width: 55%;
 }
 
-blockquote
-{
-	padding: 1em 2em;
-	margin: 0 0 2em;
-	border-left: 5px solid #eee;
+.right {
+  width: 45%;
 }
 
-hr
-{
-	height: 0;
-	margin-top: 1em;
-	margin-bottom: 2em;
-	border: 0;
-	border-top: 1px solid #ddd;
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
-table
-{
-	background-color: transparent;
-	border-spacing: 0;
-	border-collapse: collapse;
-	border-top: 1px solid #ddd;
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  color: #f2f2f2;
+  font-size: 40px;
+  padding: 10px 6px;
 }
 
-th, td
-{
-	padding: .5em 1em;
-	vertical-align: top;
-	text-align: left;
-	border-bottom: 1px solid #ddd;
+.navbar a {
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
 }
 
-a:link { color: royalblue; }
-a:visited { color: purple; }
-a:focus { color: black; }
-a:hover { color: green; }
-a:active { color: red; }
-
-/* -----------------------
-Layout styles
-------------------------*/
-
-.container
-{
-	max-width: 70em;
-	margin: 0 auto;
+.navbar a:hover {
+  background: #ddd;
+  color: black;
 }
 
-.header
-{
-	color: #fff;
-	background: #555;
-	padding: 1em 1.25em;
+.main {
+  padding: 16px;
+  margin-top: 60px;
+  height: 1500px; /* Used in this example to enable scrolling */
 }
 
-.header-heading { margin: 0; }
-
-.nav-bar
-{
-	background: #000;
-	padding: 0;
+.butt {
+    background-color: white;
+    border: 2px solid black;
+    color: black;
+    padding: 12px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
 }
 
-.content
-{
-	overflow: hidden;
-	padding: 1em 1.25em;
-	background-color: #fff;
+.butt:hover {
+   background-color:black;
+   color:white;
 }
 
-.main, .aside
-{
-	margin-bottom: 1em;
+table.greyGridTable {
+  border: 2px solid #FFFFFF;
+  width: 99%;
+  text-align: center;
+  border-collapse: collapse;
+  empty-cells: show;
+}
+table.greyGridTable td, table.greyGridTable th {
+  border: 1px solid #FFFFFF;
+  padding: 3px 4px;
+}
+table.greyGridTable tbody td {
+  font-size: 13px;
+}
+table.greyGridTable td:nth-child(even) {
+  background: #EBEBEB;
 }
 
-.footer
-{
-	color: #fff;
-	background: #000;
-	padding: 1em 1.25em;
+table.greyGridTable th:nth-child(1), th:nth-child(4){
+    display: none;
+}
+table.greyGridTable td:nth-child(1), td:nth-child(4) {
+    display: none;
 }
 
-/* -----------------------
-Nav
-------------------------*/
-
-.nav
-{
-	margin: 0;
-	padding: 0;
-	list-style: none;
+table.greyGridTable thead {
+  background: #FFFFFF;
+  border-bottom: 3px solid #333333;
+}
+table.greyGridTable thead th {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333333;
+  text-align: center;
+  border-left: 2px solid #333333;
+}
+table.greyGridTable thead th:first-child {
+  border-left: none;
 }
 
-.nav li
-{
-	display: inline;
-	margin: 0;
+table.greyGridTable thead th:last-child {
+  border-left: none;
 }
 
-.nav a
-{
-	display: block;
-	padding: .7em 1.25em;
-	color: #fff;
-	text-decoration: none;
-	border-bottom: 1px solid gray;
+table.greyGridTable tfoot {
+  font-size: 13px;
+  font-weight: bold;
+  color: #333333;
+  border-top: 3px solid #333333;
 }
 
-.nav a:link { color: white; }
-.nav a:visited { color: white; }
-
-.nav a:focus
-{
-	color: black;
-	background-color: white;
+table.greyGridTable tfoot td {
+  font-size: 13px;
+  font-style: italic
 }
 
-.nav a:hover
-{
-	color: white;
-	background-color: green;
+table.categTable {
+  border: 2px solid #FFFFFF;
+  width: 99%;
+  text-align: center;
+  border-collapse: collapse;
+  empty-cells: show;
+}
+table.categTable td, table.categTable th {
+  border: 1px solid #FFFFFF;
+  padding: 3px 4px;
+}
+table.categTable tbody td {
+  font-size: 12px;
+}
+table.categTable td:nth-child(even) {
+  background: #EBEBEB;
 }
 
-.nav a:active
-{
-	color: white;
-	background-color: red;
+table.categTable th:nth-child(1){
+    display: none;
 }
 
-/* -----------------------
-Single styles
-------------------------*/
-
-.img-responsive { max-width: 100%; }
-
-.btn
-{
-	color: #fff !important;
-	background-color: royalblue;
-	border-color: #222;
-	display: inline-block;
-	padding: .5em 1em;
-	margin-bottom: 0;
-	font-weight: 400;
-	line-height: 1.2;
-	text-align: center;
-	white-space: nowrap;
-	vertical-align: middle;
-	cursor: pointer;
-	border: 1px solid transparent;
-	border-radius: .2em;
-	text-decoration: none;
+table.categTable td:nth-child(1){
+    display: none;
 }
 
-.btn:hover
-{
-	color: #fff !important;
-	background-color: green;
+table.categTable thead {
+  background: #FFFFFF;
+  border-bottom: 3px solid #333333;
+}
+table.categTable thead th {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333333;
+  text-align: center;
+  border-left: 2px solid #333333;
+}
+table.categTable thead th:first-child {
+  border-left: none;
 }
 
-.btn:focus
-{
-	color: #fff !important;
-	background-color: black;
+table.categTable thead th:last-child {
+  border-left: none;
 }
 
-.btn:active
-{
-	color: #fff !important;
-	background-color: red;
+table.categTable tfoot {
+  font-size: 13px;
+  font-weight: bold;
+  color: #333333;
+  border-top: 3px solid #333333;
 }
 
-.table
-{
-	width: 100%;
-	max-width: 100%;
-	margin-bottom: 20px;
-}
-
-.list-unstyled
-{
-	padding-left: 0;
-	list-style: none;
-}
-
-.list-inline
-{
-	padding-left: 0;
-	margin-left: -5px;
-	list-style: none;
-}
-
-.list-inline > li
-{
-	display: inline-block;
-	padding-right: 5px;
-	padding-left: 5px;
-}
-
-/* -----------------------
-Wide styles
-------------------------*/
-
-@media (min-width: 55em)
-{
-	.header { padding: 1.5em 3em; }
-	.nav-bar { padding: 1em 3em; }
-	.content { padding: 2em 3em; }
-
-	.main
-	{
-		float: left;
-		width: 65%;
-		margin-right: 5%;
-		margin-bottom: 1em;
-	}
-
-	.aside
-	{
-		float: left;
-		width: 30%;
-		margin-bottom: 1em;
-	}
-
-	.footer { padding: 2em 3em; }
-	
-	.nav li
-	{
-		display: inline;
-		margin: 0 1em 0 0;
-	}
-	
-	.nav a
-	{
-		display: inline;
-		padding: 0;
-		border-bottom: 0;
-	}
-}
+table.categTable tfoot td {
+  font-size: 13px;
+  font-style: italic
+} 

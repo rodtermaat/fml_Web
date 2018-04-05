@@ -82,7 +82,29 @@
                 <form name="addcheck" action="addcheckform_1.jsp" method="POST">
                     <%session.setAttribute("userId", userId);%>
                     <input class="butt" type="submit" value="new" name="btnAdd"/>
-                    <a href="viewcategories.jsp">     manage categories</a>
+                    <a href="viewcategories.jsp">manage categories</a>
+                    ...Your current balance is:
+                </form>
+                <form name="addcheck1" action="addcheckform_1.jsp" method="POST">
+                    <%session.setAttribute("userId", userId);%>
+                    <table border="0">
+                        <tbody>
+                            <tr>
+                                <td><input class="butt" type="submit" value="new" name="btnAdd1"/></td>
+                                <td width="10px"></td>
+                                <td><a href="viewcategories.jsp">manage categories</a></td>
+                                <td width="20px"></td>
+                                <td>Your current balance is: </td>
+                                <td><strong>$1250</strong></td>
+                                <td width="40px"</td>
+                                <td><a href="viewcheckbook.jsp">go back</a></td>
+                                <td width="10px"></td>
+                                <td></td>
+                                <td><a href="viewcheckbook.jsp">go forward</a></td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
                 </form>
                     <h2></h2>
                 <table class="greyGridTable">  
@@ -90,14 +112,14 @@
                         <tr>
                             <th>id</th>
                             <th>date</th>
-                            <th>cleared</th>
-                            <th>type</th>  
+                            <th>cleared</th> 
                             <th>category</th>
                             <th>description</th>
                             <th>amount</th>
                             <th>balance</th>
                             <th></th>
                             <th></th>
+                            <th>type</th>
                         </tr>  
                     </thead>
                     <tfoot>
@@ -105,13 +127,13 @@
                             <td>id</td>
                             <td>date</td>
                             <td>cleared</td>
-                            <td>type</td>  
                             <td>category</td>
-                            <td>name</td>
+                            <td>description</td>
                             <td>amount</td>
                             <td>balance</td>
                             <td></td>
                             <td></td>
+                            <td>type</td>
                         </tr>
                     </tfoot>
                     <c:forEach items="${list}" var="v_chk">
@@ -124,13 +146,14 @@
                             <c:if test="${v_chk.getIsCleared() == false}">
                                 <td></td>
                             </c:if> 
-                                <td>${v_chk.getTypeName()}</td>
                             <td>${v_chk.getCategName()}</td>
                             <td>${v_chk.getCheckName()}</td>
                             <td>${v_chk.getCheckAmt()}</td>
                             <td>${v_chk.getCheckBal()}</td>
                             <td><a href="editcheckform.jsp?id=${v_chk.getCheckId()}">edit</a></td>  
-                            <td><a href="deletecheck.jsp?checkId=${v_chk.getCheckId()}">delete</a></td></tr>  
+                            <td><a href="deletecheck.jsp?checkId=${v_chk.getCheckId()}">delete</a></td>
+                            <td>${v_chk.getTypeName()}</td>
+                        </tr>  
                         </c:forEach>  
                 </table>    
             </div>
