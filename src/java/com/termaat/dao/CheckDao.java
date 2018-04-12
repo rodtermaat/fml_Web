@@ -225,4 +225,19 @@ public static int deleteCateg(ManageCateg cat){
   
     return status;  
 }
+
+public static String getBalance(Date enddate){
+    String bal = null;
+    try{  
+        Connection con=getConnection();  
+        PreparedStatement ps=con.prepareStatement(
+                "SELECT SUM(checkAmt) AS balance FROM `checkbook` c WHERE c.checkDate<=?");
+        ps.setDate(1,enddate);  
+        ResultSet rs=ps.executeQuery();  
+        while(rs.next()){    
+            bal = String.valueOf(rs.getInt("balance"));
+        }  
+    }catch(Exception e){System.out.println(e);}  
+    return bal;
+}
 }

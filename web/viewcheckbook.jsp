@@ -60,7 +60,10 @@
         <link href="resources/css/mystyle.css" type="text/css" rel="stylesheet" />
     </head> 
     <div class="header">
-        <a href="#default" class="logo"> FML. checkbook</a>
+        <%String currMon = session.getAttribute("currMon").toString();
+          String currYr = session.getAttribute("currYr").toString();
+        %>
+        <a href="#default" class="logo"> FML. checkbook. <%= currMon %> . <%= currYr%></a>
         <div class="header-right">
             <a class="active" href="index.jsp">logout</a>
         </div>
@@ -78,13 +81,8 @@
                     List<ViewCheck> list = CheckDao.getCheckbook(userId);
                     request.setAttribute("list", list);
                     //<h2>you are user number <%= userId </h2>
+                    String currBal = session.getAttribute("currBal").toString();
                 %>  
-                <form name="addcheck" action="addcheckform_1.jsp" method="POST">
-                    <%session.setAttribute("userId", userId);%>
-                    <input class="butt" type="submit" value="new" name="btnAdd"/>
-                    <a href="viewcategories.jsp">manage categories</a>
-                    ...Your current balance is:
-                </form>
                 <form name="addcheck1" action="addcheckform_1.jsp" method="POST">
                     <%session.setAttribute("userId", userId);%>
                     <table border="0">
@@ -95,7 +93,7 @@
                                 <td><a href="viewcategories.jsp">manage categories</a></td>
                                 <td width="20px"></td>
                                 <td>Your current balance is: </td>
-                                <td><strong>$1250</strong></td>
+                                <td><strong>$<%= currBal%></strong></td>
                                 <td width="40px"</td>
                                 <td><a href="viewcheckbook.jsp">go back</a></td>
                                 <td width="10px"></td>

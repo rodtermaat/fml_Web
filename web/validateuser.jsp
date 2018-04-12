@@ -3,7 +3,7 @@
     Created on : Mar 17, 2018, 9:06:32 PM
     Author     : termaat
 --%>
-<%@page import="java.sql.*"%>
+<%@page import="java.sql.*,com.termaat.helper.*,com.termaat.dao.*"%>
 <%  Class.forName("com.mysql.jdbc.Driver"); %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -71,10 +71,18 @@
             ValidUser userValid = new ValidUser();
             ResultSet rsUser = userValid.getUser(_user,_pass);
             
+            DateHelper dtx = new DateHelper();
+            CheckDao dbx = new CheckDao();
+            
             //if valid
             if (rsUser.next()){
                 // go to checkbook
                 session.setAttribute("userId", rsUser.getInt("userId"));
+                session.setAttribute("currMon", dtx.getMonthDesc(0));
+                session.setAttribute("currYr", dtx.getYear(0));
+                session.setAttribute("currBal", dbx.getBalance(dtx.getToday()));
+                System.out.println(dbx.getBalance(dtx.getToday()));
+                //session.setAttribute(currBal, value);
                 //session.setAttribute("userName", _user);
                 response.sendRedirect("viewcheckbook.jsp");
             } else{
