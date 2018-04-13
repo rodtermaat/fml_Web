@@ -55,7 +55,7 @@
     <div class="header">
         <a href="#default" class="logo"> FML. add category</a>
         <div class="header-right">
-            <a class="active" href="viewcategory.jsp">cancel</a>
+            <a class="active" href="viewcategories.jsp">cancel</a>
         </div>
     </div>
     <body>

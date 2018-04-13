@@ -226,18 +226,20 @@ public static int deleteCateg(ManageCateg cat){
     return status;  
 }
 
-public static String getBalance(Date enddate){
+public static String getBalance(int theuser, Date enddate){
     String bal = null;
     try{  
         Connection con=getConnection();  
         PreparedStatement ps=con.prepareStatement(
-                "SELECT SUM(checkAmt) AS balance FROM `checkbook` c WHERE c.checkDate<=?");
-        ps.setDate(1,enddate);  
+                "SELECT SUM(checkAmt) AS balance FROM `checkbook` c WHERE c.checkUser=? and c.checkDate<=?");
+        ps.setInt(1,theuser);
+        ps.setDate(2,enddate);
         ResultSet rs=ps.executeQuery();  
         while(rs.next()){    
             bal = String.valueOf(rs.getInt("balance"));
         }  
-    }catch(Exception e){System.out.println(e);}  
+    }catch(Exception e){System.out.println(e);}
+    System.out.println("from sql " + bal);
     return bal;
 }
 }

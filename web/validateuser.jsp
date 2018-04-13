@@ -80,8 +80,8 @@
                 session.setAttribute("userId", rsUser.getInt("userId"));
                 session.setAttribute("currMon", dtx.getMonthDesc(0));
                 session.setAttribute("currYr", dtx.getYear(0));
-                session.setAttribute("currBal", dbx.getBalance(dtx.getToday()));
-                System.out.println(dbx.getBalance(dtx.getToday()));
+                session.setAttribute("currBal", dbx.getBalance(rsUser.getInt("userId"),dtx.getToday()));
+                //System.out.println(dbx.getBalance(dtx.getToday()));
                 //session.setAttribute(currBal, value);
                 //session.setAttribute("userName", _user);
                 response.sendRedirect("viewcheckbook.jsp");

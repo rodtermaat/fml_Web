@@ -45,8 +45,8 @@
 
         // Set chart options
         var options = {'title':'spending at a glance',
-                       'width':600,
-                       'height':600};
+                       'width':550,
+                       'height':550};
 
         // Instantiate and draw our chart, passing in some options.
         var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
@@ -60,10 +60,10 @@
         <link href="resources/css/mystyle.css" type="text/css" rel="stylesheet" />
     </head> 
     <div class="header">
-        <%String currMon = session.getAttribute("currMon").toString();
+        <%String currMon = session.getAttribute("currMon").toString().toLowerCase();
           String currYr = session.getAttribute("currYr").toString();
         %>
-        <a href="#default" class="logo"> FML. checkbook. <%= currMon %> . <%= currYr%></a>
+        <a href="#default" class="logo"> FML. checkbook. <%= currMon %>. <%= currYr%></a>
         <div class="header-right">
             <a class="active" href="index.jsp">logout</a>
         </div>
@@ -156,8 +156,66 @@
                 </table>    
             </div>
             <div class="column right">
+                <table class="greyGridTable">
+                    <h1 align="right">budget tracking</h1>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>budget</th>
+                            <th>frequency</th>
+                            <th>budget $</th> 
+                            <th>actual $</th>
+                            <th>% of</th>
+                            <th></th>
+                        </tr>  
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <td></td>
+                            <td>budget</td>
+                            <td>frequency</td>
+                            <td>budget $</td>
+                            <td>actual $</td>
+                            <td>% of</td>
+                            <td></td>
+                        </tr>
+                    </tfoot>
+                        <tr>
+                            <td></td>
+                            <td>savings</td>
+                            <td>weekly</td>
+                            <td>800</td>
+                            <td>825</td>
+                            <td>103%</td>
+                            <td></td>
+                        </tr> 
+                            <td></td>
+                            <td>cash</td>
+                            <td>weekly</td>
+                            <td>40</td>
+                            <td>40</td>
+                            <td>100%</td>
+                            <td></td>
+                        </tr>
+                            <td></td>
+                            <td>groceries</td>
+                            <td>weekly</td>
+                            <td>200</td>
+                            <td>150</td>
+                            <td>75%</td>
+                            <td></td>
+                        </tr>
+                            <td></td>
+                            <td>unplanned</td>
+                            <td>weekly</td>
+                            <td>125</td>
+                            <td>213</td>
+                            <td>170%</td>
+                            <td></td>
+                        </tr>
+                </table>       
                 <!--Div that will hold the pie chart-->
-                    <div id="chart_div"></div>
+                <div id="chart_div"></div>
             </div>
         </div>
     </body>  
